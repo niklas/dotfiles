@@ -1,0 +1,19 @@
+require File.join(ENV['HOME'], 'ruby/autotest_gnomenotify')
+require File.join(ENV['HOME'], 'ruby/cucumber_gnomenotify')
+#require File.join(ENV['HOME'], 'ruby/autotest_inotify')
+#
+Autotest.add_hook :initialize do |at|
+  STDERR.puts "ignoring SCM files"
+  %w{.svn .hg .git rerun.txt .gitignore}.each {|exception| at.add_exception(exception) }
+  STDERR.puts "ignoring capybara html dumps"
+  at.add_exception(/capybara-.*html$/)
+  %w{doc log}.each do |exception| 
+    STDERR.puts "ignoring #{exception}"
+    at.add_exception(exception)
+  end
+  STDERR.puts "ignoring database directory"
+  at.add_exception(/db$/)
+  STDERR.puts "ignoring Gemfile.lock"
+  at.add_exception(/Gemfile\.lock$/)
+  nil
+end

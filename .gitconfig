@@ -1,0 +1,59 @@
+[user]
+	name = Niklas Hofer\n
+	email = niklas+dev@lanpartei.de
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	co = checkout
+        #ci = commit -m
+        a = add
+	unadd = reset HEAD
+        amend = commit --amend
+        ca = commit --amend -C HEAD
+        aa= !git add -u && git add . && git status
+        cob = checkout -b
+        up = !git fetch origin && git rebase origin/master
+        ir = !git rebase -i origin/master
+        done = !git up && git checkout master && git merge @{-1} && rake && git push
+        cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
+        hitler = blame
+        graph = log --oneline --graph --decorate
+        give = show
+	ctags = !.git/hooks/ctags
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+[core]
+        pager = less -FRSX
+        excludesfile = ~/.gitignore
+#	autocrlf = input
+#	safecrlf = true
+[apply]
+	whitespace = nowarn
+[giggle]
+	compact-mode = false
+	main-window-maximized = false
+	main-window-geometry = 1918x1047+1440+16
+	file-view-hpane-position = 276
+	history-view-vpane-position = 471
+	file-view-vpane-position = 953
+	main-window-view = HistoryView
+[push]
+	default = matching
+[diff]
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
+[github]
+	user = niklas
+[web]
+	browser = google-chrome
+[init]
+	templatedir = ~/.git_template
+[dude]
+	icon = /home/niklas/.git-dude/octocat.png
+[bz]
+	browser = google-chrome
+[merge]
+	tool = meld

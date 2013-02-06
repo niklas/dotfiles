@@ -1,0 +1,16 @@
+
+[default]
+# Write your default config options here!
+monitoraspect=16:9
+joystick=no
+nolirc=yes
+cache=16384
+vo=xv
+#quiet=true
+af=scaletempo
+#heartbeat-cmd="gnome-screensaver-command -p"
+afm=mp3lib
+
+[gnome-mplayer]
+ao=pulse
+msglevel=all=5

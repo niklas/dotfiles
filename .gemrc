@@ -1,0 +1,13 @@
+--- 
+:benchmark: false
+gemcutter_key: edde7d3fe1f84179a7bd1a48d9869831
+:verbose: true
+:backtrace: false
+:update_sources: true
+:sources: 
+- http://rubygems.org
+- http://gemcutter.org
+- http://gems.github.com
+:bulk_threshold: 1000
+# rdoc: --inline-source --line-numbers --format=html --template=hanna
+
