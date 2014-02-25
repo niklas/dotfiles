@@ -3,6 +3,7 @@
 gemcutter_key: edde7d3fe1f84179a7bd1a48d9869831
 :verbose: true
 :backtrace: false
+gem: --no-rdoc --no-ri
 :update_sources: true
 :sources: 
 - http://rubygems.org
