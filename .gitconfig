@@ -3,7 +3,7 @@
 	email = niklas+dev@lanpartei.de
 [color]
 	diff = auto
-	status = auto
+	status = always
 	branch = auto
 	interactive = auto
 [alias]
