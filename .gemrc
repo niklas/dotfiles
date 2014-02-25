@@ -7,8 +7,6 @@ gem: --no-rdoc --no-ri
 :update_sources: true
 :sources: 
 - http://rubygems.org
-- http://gemcutter.org
-- http://gems.github.com
 :bulk_threshold: 1000
 # rdoc: --inline-source --line-numbers --format=html --template=hanna
 
