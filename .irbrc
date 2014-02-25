@@ -20,7 +20,7 @@ if defined?(Hirb)
     Hirb::View.resize
   end
 
-  def tab(obj=nil, fields)
+  def tab(obj=nil, fields=nil)
     table obj, :fields => fields
   end
 else
