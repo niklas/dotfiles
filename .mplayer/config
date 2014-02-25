@@ -4,7 +4,8 @@
 monitoraspect=16:9
 joystick=no
 nolirc=yes
-cache=16384
+cache=65536
+cache-min=3
 vo=xv
 #quiet=true
 af=scaletempo
