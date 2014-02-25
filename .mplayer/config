@@ -11,6 +11,10 @@ vo=xv
 af=scaletempo
 #heartbeat-cmd="gnome-screensaver-command -p"
 afm=mp3lib
+softvol=yes
+softvol-max=300
+#softvol-max=800
+
 
 [gnome-mplayer]
 ao=pulse
