@@ -54,3 +54,5 @@
 	browser = google-chrome
 [merge]
 	tool = meld
+[interactive]
+  singlekey = true
