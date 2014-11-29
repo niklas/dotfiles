@@ -20,6 +20,7 @@
         give = show
 	ctags = !.git/hooks/ctags
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+        latest=for-each-ref --sort=-committerdate refs/ --count=20
 [core]
         pager = less -FRSX
 	excludesfile = /home/niklas/.gitignore_global
