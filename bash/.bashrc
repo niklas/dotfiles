@@ -108,11 +108,19 @@ fi
 
 # rails
 alias ss='./script/server'
-alias sss='while (true); do (ss; sleep 1); done'
+alias be="bundle exec"
+alias sss='while(true); do (echo "starting"; be rails server; echo "restarting in 3s"; sleep 3); done'
+alias zsss='while(true); do (echo "starting"; zeus server; echo "restarting in 3s"; sleep 3); done'
 alias sc='./script/console'
-alias migrate='rake db:migrate RAILS_ENV=test && rake db:migrate'
+alias migrate='bundle exec rake db:migrate RAILS_ENV=test && bundle exec rake db:migrate'
 alias irb='irb --readline -r irb/completion'
 alias rii='ri -Tf ansi'
+alias cu="truncate --size 0 log/*.log; clear; bundle exec cucumber --drb -r features/"
+alias killall_spork="ps ax | grep spork | grep -v grep | tail -n 2 | cut -b 1-6 | xargs kill"
+
+alias todo="mm task add"
+alias ack="ack-grep -i"
+alias _watch_git_status="watch --color 'git -c color.status=always status'"
 
 autotesting() {
   echo "Starting spork in background"
@@ -142,6 +150,7 @@ lsd() { encfs ~/mnt/alice/fn0rd/.$1 ~/mnt/fn0rd/$1; }
 lsdu() { fusermount -u ~/mnt/fn0rd/$1; }
 
 alias gt='gnome-terminal'
+alias t="urxvt &"
 alias tophist="cut -f1 -d\" \" ~/.bash_history | sort | uniq -c | sort -nr | head -n 30"
 
 alias right_buttons='gconftool --type string --set /apps/metacity/general/button_layout ":maximize,minimize,close"'
@@ -156,11 +165,20 @@ export LESS="-r"
 # Some git shortcuts
 alias gitdiff_staged="git diff --cached"
 alias gitdiff_unstaged="git diff"
+alias gc="git diff"
+alias gdc="git diff --cached"
 alias gitdiff_both="git diff HEAD"
 alias gst="git status"
+alias gs="git status"
+alias ci="git commit -m"
+alias feature="git flow feature"
+alias hotfix="git flow hotfix"
+alias release="git flow release"
 export EDITOR="vim"
+alias gg="git graph"
 
 alias go="gnome-open"
+alias watch_gitdiff="watch -c 'git diff --color=always; echo \"Unstaged ^^^^^ |||| vvvvv staged\"; git diff --cached --color=always'"
 
 alias lc="cl"
 function cl () {
