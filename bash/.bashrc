@@ -233,7 +233,14 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 
 alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
 export KOPFLOS=no
+
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+fi
+GPG_TTY=$(tty)
+export GPG_TTY
