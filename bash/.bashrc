@@ -81,13 +81,15 @@ export SVN_EDITOR=vim
 alias dl='DISPLAY=:0.0'
 alias dr='DISPLAY=:0.1'
 
+alias mm='milkmaid'
+
 #        local TITLEBAR='\[\033]0;\u@\h:\w\007\]'
 #        PS1="\[\033]0;\h:\w\007\033]1;\h\007\]\h\$ "
 
 # set path for rubygems, DEBIAN style (/usr/share/doc/rubygems/README.Debian)
-if [ -d /var/lib/gems/1.8/bin ] ; then
-    PATH=/var/lib/gems/1.8/bin:"${PATH}"
-fi
+#if [ -d /var/lib/gems/1.8/bin ] ; then
+#    PATH=/var/lib/gems/1.8/bin:"${PATH}"
+#fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
