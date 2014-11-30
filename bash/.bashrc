@@ -198,16 +198,10 @@ alias find_part="find app/views/parts/stock/ vendor/plugins/*/app/views/parts/st
 
 . /home/niklas/bin/git-prompt/git-prompt.sh
 
-export PERL_CPANM_OPT="--local-lib=~/.perl5"
-export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
-export PATH=~/.perl5/bin:$PATH
-
 
 export RSENSE_HOME=~/src/rsense/
 
-export MAKEFLAGS="-j3"
-
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
+export MAKEFLAGS="-j6"
 
 ## Al-Jazeera with Mplayer
 alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
