@@ -216,3 +216,10 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 -p 'http://english.aljazeera.net/watch_now/ \
 -a 'aljazeeraflashlive-live?videoId=747084146001&lineUpId=&pubId=665003303001&playerId=751182905001&affiliateId=' \
 | mplayer -cache 2048 -quiet -"
+
+alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export CAPYBARA_CHROME=yes
+export LOLCOMMITS_TRANZLATE=1
+export KOPFLOS=no
