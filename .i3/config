@@ -222,7 +222,7 @@ exec --no-startup-id feh --bg-scale /home/niklas/bin/wallpaper
 exec dunst
 exec nm-applet
 exec bluetooth-applet
-exec redshift-gtk
+exec redshift-gtk -l 52:13
 
 # Setttings
 exec --no-startup-id xrdb -merge /home/niklas/.Xresources
