@@ -18,7 +18,8 @@ URxvt.scrollWithBuffer: true
 !URxvt.background: rgba:0000/0000/0000/4444
 URxvt.secondaryScroll: true
 !URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=12
-URxvt*font: xft:Inconsolata-dz for Powerline:pixelsize=12:antialias=false, \
+URxvt*font: xft:Inconsolata:pixelsize=12:antialias=true, \
+  xft:Bitstream Vera Sans Mono:pixelsize=12, \
   xft:Symbola:pixelsize=10:antialias=true:hinting=slight
 URxvt*letterSpace: 0
 !URxvt*imFont:               xft:Inconsolata-dz for Powerline:regular:pixelsize=12
