@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DIR="/home/niklas/Pictures/Wallpapers"
+WALLPAPER="dual/Different_wallpaper_by_teddybeermaniac.jpg"
+WALLPAPER="single/Daisy_Wallpaper_by_vinyyli.jpg"
+
+feh --bg-scale "${DIR}/${WALLPAPER}"
+
