@@ -39,8 +39,13 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-[ -x '~/.rvm/scripts/rvm' ] && source ~/.rvm/scripts/rvm
-[ -x '~/.bash/git.sh' ] && source ~/.bash/git.sh
+if [ -x ~/.rvm/scripts/rvm ]; then
+  unset RUBYOPT
+  source ~/.rvm/scripts/rvm
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
+[ -x ~/.bash/git.sh ] && source ~/.bash/git.sh
 
 ps_host_and_name='\[\e[01;32m\]\u@\h\[\e[00m\]'
 ps_working_dir='\[\e[01;34m\]\W\[\e[00m\]'
