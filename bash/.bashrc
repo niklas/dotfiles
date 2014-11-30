@@ -69,9 +69,7 @@ fi
 alias tl='translate -w'
 alias lc='locate -i'
 alias neatimage='wine .wine/fake_windows/Program\ Files/Neat\ Image/NeatImage.exe'
-alias lookup='beagle-query'
 alias transsetname='xprop | grep "WM_CLASS" | cut -d \" -f 4'
-alias svnew='svn status | grep '?' | grep -v swp'
 #alias svndiff='svn diff | gview -'
 svndiff () { svn diff "${@}" | gview - ;}
 alias svngrep='grep --exclude .svn -r'
