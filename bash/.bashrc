@@ -102,6 +102,10 @@ if [ -d /usr/local/arduino-0015 ] ; then
     PATH="${PATH}":/usr/local/arduino-0015
 fi
 
+if [ -d /opt/google/android-sdk-linux_x86 ] ; then
+    PATH="${PATH}":/opt/google/android-sdk-linux_x86/tools:/opt/google/android-sdk-linux_x86/platform-tools
+fi
+
 # rails
 alias ss='./script/server'
 alias sss='while (true); do (ss; sleep 1); done'
