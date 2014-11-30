@@ -4,7 +4,7 @@
 
 # If not running interactively, don't do anything
 #[ -z "$PS1" ] && return
-# remove return vor rvm
+# remove return for rvm
 [ -z "$PS1" ]
 
 # don't put duplicate lines in the history. See bash(1) for more options
