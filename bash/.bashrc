@@ -39,8 +39,8 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-source ~/.rvm/scripts/rvm
-source ~/.bash/git.sh
+[ -x '~/.rvm/scripts/rvm' ] && source ~/.rvm/scripts/rvm
+[ -x '~/.bash/git.sh' ] && source ~/.bash/git.sh
 
 ps_host_and_name='\[\e[01;32m\]\u@\h\[\e[00m\]'
 ps_working_dir='\[\e[01;34m\]\W\[\e[00m\]'
@@ -211,7 +211,7 @@ export LD_LIBRARY_PATH="/usr/lib/firefox;$LD_LIBRARY_PATH"
 
 alias find_part="find app/views/parts/stock/ vendor/plugins/*/app/views/parts/stock themes/*/views/parts/stock"
 
-. /home/niklas/bin/git-prompt/git-prompt.sh
+[ -x '/home/niklas/bin/git-prompt/git-prompt.sh' ] && source /home/niklas/bin/git-prompt/git-prompt.sh
 
 
 export RSENSE_HOME=~/src/rsense/
