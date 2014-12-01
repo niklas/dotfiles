@@ -1,0 +1,9 @@
+# disable for cleanup
+export rvm_path="/home/niklas/.rvm"
+#rvm_install_on_use_flag=1
+rvm_install_on_use_flag=1
+# rvm_project_rvmrc=0
+alias be='bundle exec'
+
+# run the given feature in develotest mode (random port turns of drb connection to spork)
+devtest() { DEVELOTEST=true KOPFLOS=false cu --port 65123 $@; }
