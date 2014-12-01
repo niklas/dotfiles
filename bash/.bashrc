@@ -244,3 +244,7 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# allow locking screen from /etc/acpi/actions
+xhost +local:root > /dev/null
+
