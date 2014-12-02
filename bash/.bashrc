@@ -139,7 +139,12 @@ alias cu="truncate --size 0 log/*.log; clear; bundle exec cucumber --drb -r feat
 alias killall_spork="ps ax | grep spork | grep -v grep | tail -n 2 | cut -b 1-6 | xargs kill"
 
 alias todo="mm task add"
-alias ack="ack-grep -i"
+if [[ -x /usr/bin/ack ]]
+then
+  alias ack="ack -i"
+else
+  alias ack="ack-grep -i"
+fi
 alias _watch_git_status="watch --color 'git -c color.status=always status'"
 
 autotesting() {
