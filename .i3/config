@@ -152,17 +152,17 @@ bindsym $mod+r mode "resize"
 # thinkpad keys
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1 -steps 3
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1 -steps 3
-bindsym XF86AudioMute exec --no-startup-id amixer -- sset Master toggle
-bindsym XF86AudioMicMute exec --no-startup-id amixer -- sset Mic toggle
+bindsym XF86AudioMicMute exec amixer -q set Mic toggle && pkill -USR1 i3blocks
 bindsym XF86WLAN exec --no-startup-id amixer -- sset Mic toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && pkill -USR1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute && pkill -USR1 i3blocks
+bindsym XF86AudioMute exec amixer -q set Master toggle && pkill -USR1 i3blocks
 bindsym $mod+F2 exec --no-startup-id i3lock -c 698157
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
         position top
 }
 workspace_auto_back_and_forth yes
