@@ -1,9 +1,40 @@
-#!/bin/sh
+#!/bin/env ruby
 
-DIR="/home/niklas/Pictures/Wallpapers"
-WALLPAPER="dual/Different_wallpaper_by_teddybeermaniac.jpg"
-WALLPAPER="single/Daisy_Wallpaper_by_vinyyli.jpg"
-WALLPAPER="infected_by_liquae-d885fda.jpg"
+class WallpaperJuggler
+  def initialize(dir)
+    @dir = dir
+  end
 
-feh --bg-scale "${DIR}/${WALLPAPER}"
+  def empty?
+    wallpapers.empty?
+  end
+
+  def set!
+    system 'feh', '--bg-fill', *winners
+  end
+
+  def winners
+    wallpapers[0..2]
+  end
+
+  private
+
+  def wallpapers
+    @wallpapers ||= Dir[@dir + '/*.{jpg,png}'].shuffle
+  end
+end
+
+if $0 == __FILE__
+
+  dir="#{ENV['HOME']}/Pictures/Wallpapers"
+  juggle = WallpaperJuggler.new(dir)
+
+  unless juggle.empty?
+    juggle.set!
+    puts juggle.winners.first
+  else
+    exit -1
+  end
+
+end
 
