@@ -1,0 +1,13 @@
+*.swp
+*.swo
+*.pyc
+*.bak
+*.lock
+.vimmate_ignore
+tags
+temp
+tmp
+Temp
+yankring_history_v2.txt
+log
+
