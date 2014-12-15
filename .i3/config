@@ -163,6 +163,7 @@ bindsym $mod+F2 exec --no-startup-id i3lock -c 698157
 # finds out, if available)
 bar {
         status_command i3blocks
+        tray_output primary
         position top
 }
 workspace_auto_back_and_forth yes
