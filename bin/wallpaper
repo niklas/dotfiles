@@ -20,7 +20,17 @@ class WallpaperJuggler
   private
 
   def wallpapers
-    @wallpapers ||= Dir[@dir + '/*.{jpg,png}'].shuffle
+    return @wallpapers if defined?(@wallpapers)
+    @wallpapers = find_files
+    if @wallpapers.empty?
+      @dir = @dir + '/single'
+      @wallpapers = find_files
+    end
+    @wallpapers = @wallpapers.shuffle
+  end
+
+  def find_files
+    Dir[@dir + '/*.{jpg,png}']
   end
 end
 
