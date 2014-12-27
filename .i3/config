@@ -150,8 +150,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # thinkpad keys
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1 -steps 3
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1 -steps 3
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && pkill -USR1 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 && pkill -USR1 i3blocks
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle && pkill -USR1 i3blocks
 #bindsym XF86WLAN exec --no-startup-id amixer -- sset Mic toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% && pkill -USR1 i3blocks
