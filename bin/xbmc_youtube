@@ -1,0 +1,39 @@
+#!/bin/bash
+ 
+## YouTube XBMC Script 1.0
+## (c) 2013, Tom Laermans - http://tom.laermans.net
+##
+## This script is released into the public domain.
+ 
+## Configure your XBMC RPC details here
+ 
+XBMC_HOST=schnurr.local
+XBMC_PORT=8080
+XBMC_USER=xbmc
+XBMC_PASS=foobar
+ 
+## Don't touch anything under here
+ 
+REGEX="^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*"
+ 
+ID=$1
+ 
+if [ "$ID" == "" ];
+then
+  echo "Syntax $0 <id|url>"
+    exit
+    fi
+     
+    if [[ $ID =~ $REGEX ]]; then
+      ID=${BASH_REMATCH[7]}
+      fi
+       
+      function xbmc_req {
+                curl -s -i -X POST --header "Content-Type: application/json" -d "$1" http://$XBMC_USER:$XBMC_PASS@$XBMC_HOST:$XBMC_PORT/jsonrpc >/dev/null
+      }
+ 
+echo -n "Opening video id $ID on $XBMC_HOST ..."
+xbmc_req '{"jsonrpc": "2.0", "method": "Playlist.Clear", "params":{"playlistid":1}, "id": 1}';
+xbmc_req '{"jsonrpc": "2.0", "method": "Playlist.Add", "params":{"playlistid":1, "item" :{ "file" : "plugin://plugin.video.youtube/?action=play_video&videoid='$ID'"}}, "id" : 1}';
+xbmc_req '{"jsonrpc": "2.0", "method": "Player.Open", "params":{"item":{"playlistid":1, "position" : 0}}, "id": 1}';
+echo " done."
