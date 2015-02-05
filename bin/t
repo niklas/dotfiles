@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def terminal(name=nil)
+  if name
+    exec "urxvt -name #{name}"
+  else
+    exec 'urxvt'
+  end
+end
+
+case Dir.pwd
+when %r{(?:clockwork|heutekaufen)$}
+  terminal('term-Rails')
+when %r{(?:clockwork-js)$}
+  terminal('term-Ember')
+else
+  terminal
+end
