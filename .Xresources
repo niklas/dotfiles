@@ -46,8 +46,10 @@ URxvt.url-select.underline: true
 
 !URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
 !URxvt.tabbed.font: xft:Inconsolata:pixelsize=10
-URxvt*shading: 15
-URxvt*tint: white
+URxvt*shading: 23
+URxvt*blurRadius: 1x23
+URxvt*tintColor: #cccccc
+Rails*tintColor: #89639B
 !URxvt*transparent: false
 !
 URxvt*color0:      #000000
