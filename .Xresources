@@ -29,7 +29,7 @@ URxvt*letterSpace: 0
 
 URxvt*borderLess:	false
 URxvt*inheritPixmap:	true
-URxvt.perl-lib: dotfiles/vendor/urxvt-perls/
+URxvt.perl-lib: /home/niklas/dotfiles/vendor/urxvt-perls/
 URxvt.perl-ext-common: default,matcher,font-size,url-select
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
