@@ -49,7 +49,8 @@ URxvt.url-select.underline: true
 URxvt*shading: 23
 URxvt*blurRadius: 1x23
 URxvt*tintColor: #cccccc
-Rails*tintColor: #89639B
+term-Rails*tintColor: #89639B
+term-Ember*tintColor: #7A9B63
 !URxvt*transparent: false
 !
 URxvt*color0:      #000000
