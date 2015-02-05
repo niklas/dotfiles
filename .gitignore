@@ -70,7 +70,6 @@ src
 rails/*
 !rails/*tbz2
 !rails/*tgz
-vendor/
 Dropbox
 .dropbox*
 net/

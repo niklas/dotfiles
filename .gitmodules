@@ -1,0 +1,3 @@
+[submodule "vendor/urxvt-perls"]
+	path = vendor/urxvt-perls
+	url = git@github.com:muennich/urxvt-perls.git
