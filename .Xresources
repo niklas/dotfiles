@@ -29,6 +29,7 @@ URxvt*letterSpace: 0
 
 URxvt*borderLess:	false
 URxvt*inheritPixmap:	true
+!URxvt.perl-ext-common: default,matcher,font-size,uri-select
 URxvt.perl-ext-common: default,matcher,font-size
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
@@ -38,6 +39,11 @@ URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg: 0
 URxvt.tabbed.tab-bg: 1
 URxvt.tabbed.secondaryScroll: true
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
 !URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
 !URxvt.tabbed.font: xft:Inconsolata:pixelsize=10
 URxvt*shading: 15
