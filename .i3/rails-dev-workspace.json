@@ -1,0 +1,187 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.579545454545455,
+    "type": "con",
+    "nodes": [
+        {
+            // tabbed split container with 3 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 340,
+                       "width": 564,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Zeus",
+                    "percent": 0.227204783258595,
+                    "swallows": [
+                       {
+                       "class": "^URxvt$",
+                       "instance": "^Zeus$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1060,
+                       "width": 945,
+                       "x": 1930,
+                       "y": 10
+                    },
+                    "name": "Cucumber-Chromium",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                       "class": "^Chromium\\-browser$",
+                       "instance": "^Chromium\\-browser\\ \\(\\/tmp\\/\\.org\\.chromium\\.Chromium"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 340,
+                       "width": 564,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Test Log",
+                    "percent": 0.439461883408072,
+                    "swallows": [
+                       {
+                       "class": "^URxvt$",
+                       "instance": "^Rails-testlog$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            // tabbed split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 340,
+                       "width": 564,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "RailsManage",
+                    "percent": 0.3,
+                    "swallows": [
+                       {
+                       "class": "^URxvt$",
+                       "instance": "^term-Rails1$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 340,
+                       "width": 564,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "RailsManage2",
+                    "percent": 0.7,
+                    "swallows": [
+                       {
+                       "class": "^URxvt$",
+                       "instance": "^term-Rails2$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // splitv split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.420454545454545,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "floating": "auto_off",
+            "geometry": {
+               "height": 340,
+               "width": 564,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Rails-Guard",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^URxvt$",
+               "instance": "^Rails-guard$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // floating_con with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": null,
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "normal",
+            "floating": "user_on",
+            "geometry": {
+               "height": 126,
+               "width": 225,
+               "x": 847,
+               "y": 477
+            },
+            "name": "Question",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Zenity$",
+               "instance": "^zenity$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
