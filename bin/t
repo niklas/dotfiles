@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
 def terminal(name=nil)
-  if name
-    exec "urxvt -name #{name}"
-  else
-    exec 'urxvt'
-  end
+  pid = if name
+      Process.spawn 'urxvt', '-name', name
+    else
+      Process.spawn 'urxvt'
+    end
+  Process.detach pid
 end
 
 case Dir.pwd
