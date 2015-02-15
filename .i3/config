@@ -226,7 +226,7 @@ exec redshift-gtk -l 52:13
 # Setttings
 exec --no-startup-id xrdb -merge /home/niklas/.Xresources
 exec --no-startup-id urxvtd -q -f -o
-exec compton -b
+exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
 
 # Start autocutsel to sync clipboards
