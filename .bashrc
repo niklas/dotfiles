@@ -24,14 +24,12 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-source ~/.rvm/scripts/rvm
 source ~/.bash/git.sh
 
 ps_host_and_name='\[\e[01;32m\]\u@\h\[\e[00m\]'
 ps_working_dir='\[\e[01;34m\]\W\[\e[00m\]'
 ps_git_info='\[\e[01;35m\]\[$(parse_git_branch)\]\[\e[00m\]'
 #PS1="${debian_chroot:+($debian_chroot)}$ps_host_and_name:$ps_working_dir$ps_git_info\$ "
-
 
 export SCREEN_HOST=`hostname -s`
 
@@ -160,7 +158,6 @@ export WIIMOTE_BDADDR="00:19:1D:83:6E:6A"
 export DUNKELZAHN="00:1C:A4:C3:30:A2"
 export LESS="-r"
 
-
 # Some git shortcuts
 alias gitdiff_staged="git diff --cached"
 alias gitdiff_unstaged="git diff"
@@ -197,7 +194,6 @@ alias find_part="find app/views/parts/stock/ vendor/plugins/*/app/views/parts/st
 
 . /home/niklas/bin/git-prompt/git-prompt.sh
 
-
 export RSENSE_HOME=~/src/rsense/
 
 export MAKEFLAGS="-j6"
@@ -212,10 +208,11 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 
 alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
 export KOPFLOS=no
 export CLOCKWORK_EMBER_ROOT="/home/niklas/work/cileos/clockwork-js"
 
 [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
