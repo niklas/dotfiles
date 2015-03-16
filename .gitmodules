@@ -1,3 +1,6 @@
 [submodule "vendor/urxvt-perls"]
 	path = vendor/urxvt-perls
 	url = git@github.com:muennich/urxvt-perls.git
+[submodule "vendor/smartcd"]
+	path = vendor/smartcd
+	url = git@github.com:cxreg/smartcd.git
