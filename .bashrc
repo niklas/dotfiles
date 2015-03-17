@@ -208,6 +208,7 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 
 alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
 
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
 export KOPFLOS=no
