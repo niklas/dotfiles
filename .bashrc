@@ -91,7 +91,7 @@ alias mm='milkmaid'
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
+    [[ ":$PATH:" == *":$HOME/bin:"* ]] || PATH=~/bin:"${PATH}"
 fi
 
 #eval `dbus-launch --auto-syntax`
