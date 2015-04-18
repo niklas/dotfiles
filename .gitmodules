@@ -4,3 +4,6 @@
 [submodule "vendor/smartcd"]
 	path = vendor/smartcd
 	url = git@github.com:cxreg/smartcd.git
+[submodule "vendor/icdiff"]
+	path = vendor/icdiff
+	url = https://github.com/jeffkaufman/icdiff.git
