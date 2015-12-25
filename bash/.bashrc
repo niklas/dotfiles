@@ -235,6 +235,7 @@ alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torre
 export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
 export KOPFLOS=no
+export CLOCKWORK_EMBER_ROOT="/home/niklas/ember/clockwork.js"
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
