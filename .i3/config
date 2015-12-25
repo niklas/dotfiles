@@ -240,8 +240,8 @@ exec bluetooth-applet
 exec redshift-gtk -l 52:13
 
 # Setttings
-exec --no-startup-id xrdb -merge /home/niklas/.Xresources
-exec urxvtd -q -f -o
+exec --no-startup-id xrdb -merge /home/niklas/.Xdefaults
+exec --no-startup-id urxvtd -q -f -o
 # disable touchpad while typing
 exec --no-startup-id syndaemon -i 3 -K -d
 
@@ -250,6 +250,7 @@ exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
+
 # turn of coasting when scrolling with touchpad. Stop immediately
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
 exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
