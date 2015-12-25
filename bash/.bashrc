@@ -47,7 +47,7 @@ ps_git_info='\[\e[01;35m\]\[$(parse_git_branch)\]\[\e[00m\]'
 #PS1="${debian_chroot:+($debian_chroot)}$ps_host_and_name:$ps_working_dir$ps_git_info\$ "
 
 
-export SCREEN_HOST=`hostname -s`
+#export SCREEN_HOST=`hostname -s`
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
