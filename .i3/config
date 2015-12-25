@@ -248,6 +248,10 @@ for_window [instance="dropdowncalc"] resize set 800 300
 for_window [instance="dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
+# gnuradio
+assign     [class="Top_block.py"] "3:radio"
+for_window [class="Top_block.py"] fullscreen
+
 # Games etc
 for_window [class="org-spoutcraft-launcher-Main"] floating enable
 
