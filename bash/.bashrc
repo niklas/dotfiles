@@ -65,7 +65,7 @@ if [ "$TERM" != "dumb" ]; then
     alias crep='grep --color=always'
 #    export GREP_OPTIONS='--color=auto'
     export GREP_OPTIONS='--color=auto --exclude-from=/home/niklas/.grep-excludes --exclude-dir=.svn'
-    export GREP_COLOR='00;38;5;226'
+    #export GREP_COLOR='00;38;5;226'
     export TERM=rxvt
 fi
 
