@@ -20,14 +20,14 @@ SOURCE_MUTED=$(pacmd list-sources|grep -A 15 '* index'|awk '/muted:/{ print $2 }
 
 O="${CURVOL}%"
 
-if [[ $MUTED = 'yes' ]]
+if [[ "$MUTED" = 'yes' ]]
 then
   O="M: $O"
 else
   O="♪: $O"
 fi
 
-if [[ $SOURCE_MUTED = 'no' ]]
+if [[ "$SOURCE_MUTED" = 'no' ]]
 then
   O="$O ♎"
 fi
