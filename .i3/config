@@ -199,7 +199,13 @@ assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
 assign [class="Claws-mail"] "9:mail"
 assign [instance="chromium-browser"] "10:capybara"
+assign [instance="Chromium-browser"] "10:capybara"
 no_focus [instance="chromium-browser"]
+no_focus [instance="Chromium-browser"]
+
+# gnu radio
+assign     [class="Top_block.py"] "3:radio"
+for_window [class="Top_block.py"] fullscreen
 
 # Games etc
 for_window [class="org-spoutcraft-launcher-Main"] floating enable
