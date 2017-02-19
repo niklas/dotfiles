@@ -192,10 +192,13 @@ bindsym $mod+x move workspace to output right
 
 bindsym $mod+Shift+V exec i3-input -F 'rename workspace to %s' -P 'Workspace name: '
 
-assign [class="Google-chrome" window_role="browser"] "7:www"
+bindsym $mod+Shift+B border toggle
+
+assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
 assign [class="Claws-mail"] "9:mail"
-assign [instance="Chromium-browser"] "10:capybara"
+assign [instance="chromium-browser"] "10:capybara"
+no_focus [instance="chromium-browser"]
 
 # Games etc
 for_window [class="org-spoutcraft-launcher-Main"] floating enable
@@ -204,8 +207,15 @@ for_window [class="org-spoutcraft-launcher-Main"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="Gcr-prompter"] floating enable
 for_window [class="Steam"] floating enable
+for_window [instance="chromium-browser"] floating enable
 # processing
 for_window [class="processing-core-PApplet"] floating enable
+for_window [class="Xsane"] floating enable
+
+# set borders on new windows to 1pixel if they are in a split container. In
+# stacked or tabbed containers the title bar(s) will still be shown if there is
+# more than one window in the container.
+new_window 1pixel
 
 # old eyes cannot see the subtle split indicator,so make it pink
 # class                 border  backgr. text    indicator
