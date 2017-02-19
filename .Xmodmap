@@ -7,3 +7,5 @@ keycode 167 = F18
 !remove Lock = Caps_Lock
 clear Lock
 keycode 66 = F20
+
+! ?? mute mice first_keycode 8, count 248
