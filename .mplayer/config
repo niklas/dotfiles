@@ -15,6 +15,7 @@ softvol=yes
 softvol-max=300
 #softvol-max=800
 ao=pulse,alsa
+fs=yes
 
 
 [gnome-mplayer]
