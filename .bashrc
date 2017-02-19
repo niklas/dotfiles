@@ -178,7 +178,7 @@ alias release="git flow release"
 export EDITOR="vim"
 alias gg="git graph"
 
-alias go="gnome-open"
+alias op="xdg-open"
 alias watch_gitdiff="watch -c 'git diff --color=always; echo \"Unstaged ^^^^^ |||| vvvvv staged\"; git diff --cached --color=always'"
 
 alias lc="cl"
