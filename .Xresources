@@ -47,15 +47,18 @@ URxvt.url-select.underline: true
 !URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
 !URxvt.tabbed.font: xft:Inconsolata:pixelsize=10
 URxvt*shading: 23
-URxvt*blurRadius: 1x23
-URxvt*tintColor: #cccccc
+URxvt*blurRadius: 23x1
+!URxvt*tintColor: #cccccc
+URxvt*tintColor: #235A6D
 term-Rails*tintColor: #89639B
 term-Ember*tintColor: #7A9B63
 !URxvt*transparent: false
 !
 URxvt*color0:      #000000
+! red, was too bright
+URxvt*color1:      #7E0703
 ! red, was too dark
-URxvt*color1:      #E53B37
+!URxvt*color1:      #E53B37
 !URxvt*color1:      #A80000
 URxvt*color2:      #00A800
 URxvt*color3:      #A85400
