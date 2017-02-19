@@ -53,6 +53,10 @@ if [ "$TERM" != "dumb" ]; then
     export TERM=rxvt
 fi
 
+# GREP_OPTIONS is deprecated
+alias grep="/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
