@@ -237,6 +237,9 @@ exec --no-startup-id xrdb -merge /home/niklas/.Xresources
 exec urxvtd -q -f -o
 # disable touchpad while typing
 exec --no-startup-id syndaemon -i 3 -K -d
+
+# no right click with two-finger tap on touchpad
+exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
