@@ -49,3 +49,5 @@ $if mode=emacs
   "\e[1;7B": non-incremental-forward-search-history
 
 $endif
+
+C-b:unix-filename-rubout
