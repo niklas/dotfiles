@@ -111,8 +111,8 @@ fi
 # rails
 alias ss='./script/server'
 alias be="bundle exec"
-alias sss='while(true); do (echo "starting"; be rails server; echo "restarting in 3s"; sleep 3); done'
-alias zsss='while(true); do (echo "starting"; zeus server; echo "restarting in 3s"; sleep 3); done'
+alias sss='while(true); do (echo "starting"; be rails server; echo "restarting in 1s"; sleep 1); done'
+alias zsss='while(true); do (echo "starting"; zeus server; echo "restarting in 1s"; sleep 1); done'
 alias sc='./script/console'
 alias migrate='bundle exec rake db:migrate RAILS_ENV=test && bundle exec rake db:migrate'
 alias irb='irb --readline -r irb/completion'
