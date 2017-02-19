@@ -91,7 +91,7 @@ Xautolock.corners: +000
 Xautolock.cornerdelay: 1
 Xautolock.cornerredelay: 15
 Xautolock.noclose: true
-Xautolock.locker: xlock -mode strange -mousemotion
+Xautolock.locker: i3lock
 
 URxvt*termName: rxvt-256color
 
