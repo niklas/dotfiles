@@ -1,6 +1,7 @@
+! xrdb -merge ~/.Xresources
 URxvt.saveLines: 10000
 URxvt.depth: 32
-URxvt*background:  #000000
+URxvt*background:  #808080
 URxvt*foreground:  #A8A8A8
 URxvt*scrollBar_right:	false
 URxvt*scrollBar:	false
@@ -46,10 +47,10 @@ URxvt.url-select.underline: true
 
 !URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
 !URxvt.tabbed.font: xft:Inconsolata:pixelsize=10
-URxvt*shading: 23
+URxvt*shading: 42
 URxvt*blurRadius: 23x1
 !URxvt*tintColor: #cccccc
-URxvt*tintColor: #235A6D
+URxvt*tintColor: #808080
 term-Rails*tintColor: #89639B
 term-Ember*tintColor: #7A9B63
 !URxvt*transparent: false
