@@ -190,10 +190,27 @@ function cl () {
    fi
 }
 
+function count_scenarios () {
+  grep -rc '^\s*Scenario' features/ |
+  while read l
+  do
+    x=(${l//:/ })
+    c=${x[1]}
+    if [ "$c" -ne "0" ]
+    then
+      printf '%0.s#' $(seq 1 $c)
+      echo " " ${x[0]}
+    fi
+  done |
+  column -t |
+  sort -V
+}
+
 alias record_screen="ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq"
 
 export SELENIUM_BROWSER="*firefox /usr/lib/firefox/firefox-2-bin"
 export LD_LIBRARY_PATH="/usr/lib/firefox;$LD_LIBRARY_PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 alias find_part="find app/views/parts/stock/ vendor/plugins/*/app/views/parts/stock themes/*/views/parts/stock"
 
@@ -213,12 +230,35 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 
 alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export CAPYBARA_CHROME=yes
+alias mountSpinn="udisksctl mount -b /dev/sdb4"
+
+#export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
 export KOPFLOS=no
 export CLOCKWORK_EMBER_ROOT="/home/niklas/work/cileos/clockwork-js"
 
-[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NIN_REPO_DATABASE="nin_repo"
+export NIN_REPO_USERNAME="cataract"
+export NIN_REPO_PASSWORD="cataract"
+export NIN_REPO_HOSTNAME="localhost"
+
+export SENNHEISER="00:16:94:14:3C:83"
+
+if [ -n "$PS1" ]; then
+  [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config && echo "SmartCD loaded"
+fi
+
+source ~/.rvm/scripts/rvm
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# spark particle gifted by @sonkaheinen
+export RAZETH=48ff70065067555014271587
+
+export GOBIN=~/.go/bin
+export GOPATH=~/.go
+
+# all bitspire apps want this set
+export ERRBIT_API_KEY=affeaffeaffe
+
+#export SHOP=heute_kaufen
