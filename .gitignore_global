@@ -2,7 +2,6 @@
 *.swo
 *.pyc
 *.bak
-*.lock
 .vimmate_ignore
 tags
 temp
