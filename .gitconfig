@@ -9,7 +9,7 @@
 [alias]
 	co = checkout
         #ci = commit -m
-        a = add
+        a = add -p
 	unadd = reset HEAD
         amend = commit --amend
         ca = commit --amend -C HEAD
