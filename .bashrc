@@ -230,7 +230,7 @@ alias aje="rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ \
 
 alias new_torrents="ssh torrents ruby /home/niklas/cataract/script/runner 'Torrent.recognize_new'"
 
-alias mountSpinn="udisksctl mount -b /dev/sdb4"
+alias mountSpinn="udisksctl mount -b /dev/sdb2"
 
 #export CAPYBARA_CHROME=yes
 export LOLCOMMITS_TRANZLATE=1
