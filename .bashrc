@@ -209,7 +209,7 @@ function count_scenarios () {
 alias record_screen="ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq"
 
 export SELENIUM_BROWSER="*firefox /usr/lib/firefox/firefox-2-bin"
-export LD_LIBRARY_PATH="/usr/lib/firefox;$LD_LIBRARY_PATH"
+#export LD_LIBRARY_PATH="/usr/lib/firefox;$LD_LIBRARY_PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 alias find_part="find app/views/parts/stock/ vendor/plugins/*/app/views/parts/stock themes/*/views/parts/stock"
