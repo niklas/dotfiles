@@ -250,6 +250,10 @@ exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
+exec syndaemon -i 2 -t -k
+exec synclient VertScrollDelta=400
+exec xrandr --dpi 144
+exec /home/niklas/bin/wallpaper
 
 # turn of coasting when scrolling with touchpad. Stop immediately
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
