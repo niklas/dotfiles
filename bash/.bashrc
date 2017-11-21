@@ -131,6 +131,7 @@ alias irb='irb --readline -r irb/completion'
 alias rii='ri -Tf ansi'
 alias cu="truncate --size 0 log/*.log; clear; bundle exec cucumber --drb -r features/"
 alias killall_spork="ps ax | grep spork | grep -v grep | tail -n 2 | cut -b 1-6 | xargs kill"
+alias add="git add -p"
 
 alias todo="mm task add"
 if [[ -x /usr/bin/ack ]]
