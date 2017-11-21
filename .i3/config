@@ -270,9 +270,9 @@ exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synapti
 #exec --no-startup-id urxvt
 
 # Start default apps
-exec pidgin
-exec google-chrome
-exec claws-mail
+#exec pidgin
+#exec google-chrome
+#exec claws-mail
 
 # chat
 #workspace 8
