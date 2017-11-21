@@ -319,6 +319,7 @@ exec --no-startup-id wallpaper
 exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
 
 exec --no-startup-id ls ~/.bm* | entr ~/bin/tools/shortcuts
+exec xrandr --dpi 144
 
 # Start autocutsel to sync clipboards
 # 2014-01-03 annoying, cannot enter URLs on RTM, autoselecting fields overwrite selection
