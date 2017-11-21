@@ -1,19 +1,19 @@
 #!/usr/bin/env ruby
 
-def terminal(name=nil)
-  pid = if name
-      Process.spawn 'urxvt', '-name', name
-    else
-      Process.spawn 'urxvt'
-    end
+require "color"
+
+def terminal(opts = {})
+  args = opts.map {|k,v| ["-#{k}", v] }.flatten
+  pid = Process.spawn 'urxvt', *args
   Process.detach pid
 end
 
-case Dir.pwd
-when %r{(?:clockwork|heutekaufen)$}
-  terminal('term-Rails')
-when %r{(?:clockwork-js)$}
-  terminal('term-Ember')
-else
-  terminal
+def random_color
+  Color::HSL.from_fraction(rand, 0.5, 0.5).to_rgb.html
+rescue
+  '#FFFFFF'
+end
+
+if $0 == __FILE__
+  terminal tint: random_color
 end
