@@ -231,8 +231,6 @@ client.focused_inactive #333333 #5f676a #ffffff #7B0975
 client.unfocused        #333333 #222222 #888888 #B31EAC
 client.urgent           #2f343a #FF8700 #ffffff #FF8700
 
-exec --no-startup-id /home/niklas/bin/wallpaper
-
 # Start some applets
 exec dunst
 exec nm-applet
@@ -252,8 +250,9 @@ exec --no-startup-id synclient TapButton2=0
 exec xmodmap /home/niklas/.Xmodmap
 exec syndaemon -i 2 -t -k
 exec synclient VertScrollDelta=400
-exec xrandr --dpi 144
-exec /home/niklas/bin/wallpaper
+exec --no-startup-id xrandr --dpi 144
+exec --no-startup-id xrandr --output LVDS1 --primary
+exec --no-startup-id /home/niklas/bin/wallpaper
 
 # turn of coasting when scrolling with touchpad. Stop immediately
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
