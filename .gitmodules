@@ -7,3 +7,6 @@
 [submodule "vendor/icdiff"]
 	path = vendor/icdiff
 	url = https://github.com/jeffkaufman/icdiff.git
+[submodule ".urxvt/vendor/urxvt-font-size"]
+	path = .urxvt/vendor/urxvt-font-size
+	url = https://github.com/majutsushi/urxvt-font-size.git
