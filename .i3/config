@@ -216,7 +216,7 @@ for_window [class="Gcr-prompter"] floating enable
 for_window [class="Steam"] floating enable
 for_window [instance="chromium-browser"] floating enable
 # processing
-for_window [class="processing-core-PApplet"] floating enable
+for_window [class="processing-core-Applet"] floating enable
 for_window [class="Xsane"] floating enable
 
 # set borders on new windows to 1pixel if they are in a split container. In
