@@ -106,10 +106,6 @@ alias mm='milkmaid'
 #fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
-fi
-
 #eval `dbus-launch --auto-syntax`
 
 if [ -d /usr/local/arduino-0015 ] ; then
