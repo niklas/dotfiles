@@ -241,15 +241,17 @@ exec redshift-gtk -l 52:13
 exec --no-startup-id xrdb -merge /home/niklas/.Xdefaults
 exec --no-startup-id urxvtd -q -f -o
 # disable touchpad while typing
-exec --no-startup-id syndaemon -i 3 -K -d
+#exec --no-startup-id syndaemon -i 3 -K -d
+exec --no-startup-id synclient PalmDetect=1
+exec --no-startup-id synclient PalmMinWidth=8
+exec --no-startup-id synclient PalmMinZ=100
+exec --no-startup-id synclient VertScrollDelta=155
 
 # no right click with two-finger tap on touchpad
 exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
-exec syndaemon -i 2 -t -k
-exec synclient VertScrollDelta=400
 exec --no-startup-id xrandr --dpi 144
 exec --no-startup-id xrandr --output LVDS1 --primary
 exec --no-startup-id /home/niklas/bin/wallpaper
