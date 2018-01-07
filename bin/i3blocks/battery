@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../block', __FILE__)
+
+class Battery < Block
+  BAR_LENGTH = 10
+
+  def initialize(*args)
+    @bar_length = (args.shift || BAR_LENGTH).to_i
+    @bat_number = ENV.fetch('BLOCK_INSTANCE', 0)
+  end
+
+  class Value < Struct.new(:status, :percent)
+    def short_status
+      case status
+      when 'Discharging'
+        ' DIS'
+      when 'Charging'
+        ' CHR'
+      else
+        ''
+      end
+    end
+  end
+
+  def full_text
+    PBar.new(@bar_length, value.percent).wbar
+  end
+
+  def short_text
+    %Q[#{value.percent}%] + value.short_status
+  end
+
+  def color
+    if value.status == 'Discharging'
+      p = value.percent.to_i
+      if p < 20
+        "#FF0000"
+      elsif p < 40
+        "#FFAE00"
+      elsif p < 60
+        "#FFF600"
+      elsif p < 85
+        "#A8FF00"
+      elsif p > 95
+        "#58FF00"
+      else
+        super
+      end
+    else
+      super
+    end
+  end
+
+  def get_value
+    acpi = `acpi -b | grep 'Battery #{@bat_number}'`
+    if acpi =~ /: (\w+), (\d+)%/
+      Value.new($1, $2)
+    end
+  end
+end
+
+if $0 == __FILE__
+  $stdout.puts Battery.new(*ARGV).to_i3bar
+end
+

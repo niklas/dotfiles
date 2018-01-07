@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../block', __FILE__)
+
+class CpuUsage < Block
+  def initialize(*args)
+    @bar_length = (args.shift || 10).to_i
+    @t_crit = (args.shift || 80).to_i
+    @t_warn = (args.shift || 50).to_i
+  end
+
+  def short_text
+    "% 2i%%" % [value]
+  end
+
+  def full_text
+    PBar.new(@bar_length, value).wbar
+  end
+
+  def color
+    if value >= @t_crit
+      '#FF0000'
+    elsif value >= @t_warn
+      '#FFFC00'
+    else
+      ''
+    end
+  end
+
+  private
+
+  def get_value
+    `mpstat 1 1`.lines.each do |l|
+
+      if l =~ /^.*\s+(\d+\.\d+)\s+$/
+        return 100 - $1.to_f
+      end
+    end
+  end
+
+end
+
+if $0 == __FILE__
+  $stdout.puts CpuUsage.new(*ARGV).to_i3bar
+end
