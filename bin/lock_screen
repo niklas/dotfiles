@@ -1,0 +1,59 @@
+#!/bin/bash
+
+####################################################################
+#                                #                                 #
+#             i3lock++           #        Available effects        #
+#                                #                                 #
+# Dependencies:                  #   -  blur                       #
+#    - imagemagick               #   -  pixel                      #
+#    - i3lock                    #   -  gray                       #
+#                                #   -  sepia                      #
+# Usage:                         #   -  charcoal                   #
+#    i3lock++ [EFFECT]           #   -  paint                      #
+#                                #   -  spread                     #         
+#                                #   -  vignette                   #
+#                                #                                 #
+#                                #                                 #
+####################################################################
+
+IMG="/home/niklas/tmp/i3lock.png"            # path of screenshot
+SCT='import -silent -window root'        # screenshot command
+
+              ##########################################
+              #                                        #
+              #               EFFECTS                  #
+              #                                        #
+              # Edit variables to change effect result #
+              #                                        #
+              #                                        #
+              ##########################################
+
+BLUR="-blur 2x3" 
+XBLUR="-blur 200x3" 
+PIXEL="-scale 25% -scale 400%" 
+GRAY="-colorspace Gray -gamma 0.95"
+HALFGRAY="-modulate 100,60,100"
+COLORIZE="-modulate 100,400,100"
+SEPIA="-sepia-tone 80%"
+CHARCOAL="-charcoal 5 "
+PAINT="-paint 1"
+SPREAD="-interpolate nearest -virtual-pixel mirror -spread 5"
+VIGNETTE="-background black -vignette 0x5" 
+
+SCALE_DOWN="-resize 25%"
+SCALE_UP="-resize 400%"
+
+# Take screenshot
+$SCT $IMG
+convert $IMG $SCALE_DOWN $PIXEL $XBLUR $SPREAD $PAINT $HALFGRAY $XBLUR $SCALE_UP $IMG
+
+case "$1" in
+    
+    test)
+	feh -F $IMG ;;
+
+    *) 
+	i3lock -i $IMG ;;
+esac
+
+rm  -f $IMG
