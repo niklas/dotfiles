@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     html
      ruby
      elixir
      yaml
@@ -311,6 +312,16 @@ you should place your code here."
   (setq
    elm-format-on-save t
    elm-tags-on-save t
+   ;; allow indent-cycle in insert state
+   tab-always-indent t
+   org-catch-invisible-edits 'smart
+   org-link-abbrev-alist
+   '(
+     ("google"    . "http://www.google.com/search?q=")
+     ("gmap"      . "http://maps.google.com/maps?q=%s")
+     ("omap"      . "http://nominatim.openstreetmap.org/search?q=%s&polygon=1")
+     )
+
    )
   )
 
@@ -321,6 +332,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elm-indent-look-past-empty-line nil)
  '(browse-url-browser-function (quote browse-url-chromium))
  '(browse-url-chromium-program "google-chrome"))
 (custom-set-faces
