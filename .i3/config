@@ -259,6 +259,7 @@ exec --no-startup-id /home/niklas/bin/wallpaper
 # turn of coasting when scrolling with touchpad. Stop immediately
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
 exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
+exec --no-startup-id blueman-applet
 
 # Start autocutsel to sync clipboards
 # 2014-01-03 annoying, cannot enter URLs on RTM, autoselecting fields overwrite selection
