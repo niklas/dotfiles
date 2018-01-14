@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+class PBar
+  CB = " ▏▎▍▌▋▊▉█".freeze
+  B = "⸡⸠"
+
+  def initialize(*args)
+    @length = args.shift.to_i
+    @percentage = args.shift.to_f
+  end
+
+  def wbar
+    B[0] + bar + B[1] + ("%3i%%" % [@percentage])
+  end
+
+  def bar
+    c = CB.length
+    max = c * @length
+    fact = max * @percentage / 100
+    fulls = fact / c
+    part = fact % c
+    empts = @length - fulls
+    empts-=1 if part > 0
+
+    "".tap do |out|
+      out << CB[-1] * fulls
+      out << CB[part] if part > 0
+      out << CB[0] * empts
+    end
+  end
+end
+
+if __FILE__ == $0
+  $stdout.puts PBar.new(*ARGV).wbar
+end
+
