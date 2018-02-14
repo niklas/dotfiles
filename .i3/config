@@ -241,7 +241,7 @@ exec redshift-gtk -l 52:13
 exec --no-startup-id xrdb -merge /home/niklas/.Xdefaults
 exec --no-startup-id urxvtd -q -f -o
 # disable touchpad while typing
-#exec --no-startup-id syndaemon -i 3 -K -d
+exec --no-startup-id syndaemon -i 0.5 -K -d
 exec --no-startup-id synclient PalmDetect=1
 exec --no-startup-id synclient PalmMinWidth=8
 exec --no-startup-id synclient PalmMinZ=100
