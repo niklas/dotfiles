@@ -254,3 +254,5 @@ fi
 # allow locking screen from /etc/acpi/actions
 xhost +local:root > /dev/null
 
+
+[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
