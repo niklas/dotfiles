@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
      html
      ruby
      elixir
@@ -54,7 +55,12 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+     vue-mode
+     lsp-mode
+     lsp-vue
+     company-lsp
+     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -133,7 +139,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Inconsolata"
-                               :size 18
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -314,7 +320,12 @@ you should place your code here."
    elm-tags-on-save t
    ;; allow indent-cycle in insert state
    tab-always-indent t
+   evil-cross-lines t
+   ;; edit new-style JS
+   js2-strict-missing-semi-warning nil
+   js2-missing-semi-one-line-override t
    org-catch-invisible-edits 'smart
+   create-lockfiles nil
    org-link-abbrev-alist
    '(
      ("google"    . "http://www.google.com/search?q=")
@@ -323,6 +334,19 @@ you should place your code here."
      )
 
    )
+  ;; two spaces indent for js
+  (setq-default js2-basic-offset 2
+              js-indent-level 2)
+  ;; Vue support
+  (require 'vue-mode)
+    (add-to-list 'vue-mode-hook #'smartparens-mode)
+  (require 'lsp-mode)
+    (require 'lsp-vue)
+    (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
+    (with-eval-after-load 'lsp-mode
+      (require 'lsp-flycheck))
+  (require 'company-lsp)
+    (push 'company-lsp company-backends)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
