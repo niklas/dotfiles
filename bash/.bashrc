@@ -192,6 +192,8 @@ alias hotfix="git flow hotfix"
 alias release="git flow release"
 export EDITOR="vim"
 alias gg="git graph"
+# baguette working dir
+alias bwd='pwd | sed -e s*/*🥖*g'
 
 alias go="gnome-open"
 alias watch_gitdiff="watch -c 'git diff --color=always; echo \"Unstaged ^^^^^ |||| vvvvv staged\"; git diff --cached --color=always'"
