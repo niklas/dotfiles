@@ -35,6 +35,7 @@ values."
      html
      ruby
      elixir
+     puppet
      yaml
      javascript
      elm
@@ -50,16 +51,15 @@ values."
      ;; spell-checking
      syntax-checking
      version-control
+     mix-format
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+     prettier-js
      vue-mode
-     lsp-mode
-     lsp-vue
-     company-lsp
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -96,7 +96,7 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -211,7 +211,7 @@ values."
    dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state 'always
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -266,6 +266,7 @@ values."
    ;;   :size-limit-kb 1000)
    ;; (default nil)
    dotspacemacs-line-numbers 'relative
+   ;;dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -326,6 +327,8 @@ you should place your code here."
    js2-missing-semi-one-line-override t
    org-catch-invisible-edits 'smart
    create-lockfiles nil
+   ;; paste with p/P, cycle through yank history with C-j, C-k
+   dotspacemacs-enable-paste-transient-state t
    org-link-abbrev-alist
    '(
      ("google"    . "http://www.google.com/search?q=")
@@ -340,13 +343,15 @@ you should place your code here."
   ;; Vue support
   (require 'vue-mode)
     (add-to-list 'vue-mode-hook #'smartparens-mode)
-  (require 'lsp-mode)
-    (require 'lsp-vue)
-    (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
-    (with-eval-after-load 'lsp-mode
-      (require 'lsp-flycheck))
-  (require 'company-lsp)
-    (push 'company-lsp company-backends)
+  ;; LSP fails to install, wants emacs 25
+  ;;(require 'lsp-mode)
+  ;;  (require 'lsp-vue)
+  ;;  (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
+  ;;  (with-eval-after-load 'lsp-mode
+  ;;    (require 'lsp-flycheck))
+  ;;(require 'company-lsp)
+  ;;  (push 'company-lsp company-backends)
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
