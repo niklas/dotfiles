@@ -1,0 +1,38 @@
+#!/bin/sh
+
+
+set -e
+
+# Filename is first and only input
+file=$1
+
+# Resolution for screenshots
+size=320x180
+tile=4x3000
+
+
+target=$file.storyboard.jpg 
+
+# poor man's make
+if [ -e $target ];
+then
+  echo "already exists: $target"
+  exit
+fi
+
+tmpdir=$(mktemp -d)
+
+ffmpeg -i $file \
+       -r 0.6  \
+       -filter_complex "drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf: text='frame %{n}\\: %{pict_type}\\: pts=%{pts \\: hms}': x=100: y=5: fontsize=60: fontcolor=yellow@0.8: box=1: boxcolor=blue@0.9" \
+       -f image2 \
+       -s $size \
+          $tmpdir/images%07d.png
+# Images 1&2 Always seem to be black so lets remove them
+rm -f $tmpdir/images0000001.png $tmpdir/images0000002.png
+montage $tmpdir/images*png -geometry +0+0 -tile $tile -background black $target
+echo
+echo "Written $target"
+echo
+# Clean up after ourselves
+rm -f $tmpdir/images*png
