@@ -194,6 +194,9 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+Shift+V exec i3-input -F 'rename workspace to %s' -P 'Workspace name: '
 
 bindsym $mod+Shift+B border toggle
+bindsym Print exec screenshot
+# cannot apply modifiere to Print key :(
+#bindsym $mod+Print exec screenshot window
 
 assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
