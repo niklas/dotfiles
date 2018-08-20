@@ -10,6 +10,7 @@
 --type-set=handlebars=.handlebars
 --type-set=emblem=.emblem
 --type-set=elm=.elm
+--type-set=elixir=.ex,.exs
 --type-set=js=.js
 --type-set=c=.h,.c,.cpp,.cs
 --type-set=log=.log
