@@ -255,8 +255,6 @@ exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
 exec xmodmap /home/niklas/.Xmodmap
-exec --no-startup-id xrandr --dpi 144
-exec --no-startup-id xrandr --output LVDS1 --primary
 exec --no-startup-id /home/niklas/bin/wallpaper
 
 # turn of coasting when scrolling with touchpad. Stop immediately
