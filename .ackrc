@@ -14,6 +14,8 @@
 --type-set=js=.js
 --type-set=c=.h,.c,.cpp,.cs
 --type-set=log=.log
+--type-set=terraform=.tf
+--type-set=shell=.sh,.bash
 --ignore-dir=public/upload/images/
 --ignore-dir=coverage/
 --ignore-dir=tmp/
