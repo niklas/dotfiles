@@ -1,4 +1,5 @@
 bf	~/.bmfiles
 bd	~/.bmdirs
 cfb	~/.bashrc
+i3  ~/.i3/config
 di  ~/dotfiles/install
