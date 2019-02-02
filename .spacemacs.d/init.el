@@ -56,6 +56,10 @@ values."
      version-control
      mix-format
      terraform
+     journal
+     (shell :variables
+              shell-default-shell 'ansi-term
+              shell-default-term-shell "/bin/bash")
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -339,7 +343,9 @@ you should place your code here."
      ("gmap"      . "http://maps.google.com/maps?q=%s")
      ("omap"      . "http://nominatim.openstreetmap.org/search?q=%s&polygon=1")
      )
-
+   org-journal-file-format "%Y%m%d.gpg"
+   org-journal-date-format "%A, %Y-%m-%d"
+   org-extend-today-until 4
    )
   ;; two spaces indent for js
   (setq-default js2-basic-offset 2
@@ -356,7 +362,16 @@ you should place your code here."
   ;;(require 'company-lsp)
   ;;  (push 'company-lsp company-backends)
   (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'org-journal-after-entry-create-hook
+            (lambda ()
+                  (setq-local epa-file-encrypt-to "niklas@lanpartei.de")))
+  (with-eval-after-load 'org-journal
+    (bind-key (quote [f9]) 'org-journal-open-previous-entry org-journal-mode-map))
+  (with-eval-after-load 'org-journal
+    (bind-key (quote [f12]) 'org-journal-open-next-entry org-journal-mode-map))
+  ;; remap C-a to `smarter-move-beginning-of-line'
   )
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -374,10 +389,10 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(org-agenda-files
    (quote
-    ("~/org/Me.org" "~/org/GCX.org" "~/org/Consume.org" "~/org/LANpartei.org" "~/TODO.org")))
+    ("~/org/Projekte.org" "~/org/Private.org.gpg" "~/org/Me.org" "~/org/GCX.org" "~/org/Consume.org" "~/org/LANpartei.org" "~/TODO.org")))
  '(package-selected-packages
    (quote
-    (csv-mode powershell terraform-mode hcl-mode graphviz-dot-mode yapfify yaml-mode ws-butler winum which-key web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode prettier-js popwin pip-requirements persp-mode paradox orgit org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-elixir neotree move-text minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-mix flycheck-elm flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elm-mode elisp-slime-nav dumb-jump diminish diff-hl define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help org-journal csv-mode powershell terraform-mode hcl-mode graphviz-dot-mode yapfify yaml-mode ws-butler winum which-key web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode prettier-js popwin pip-requirements persp-mode paradox orgit org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-elixir neotree move-text minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-mix flycheck-elm flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elm-mode elisp-slime-nav dumb-jump diminish diff-hl define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

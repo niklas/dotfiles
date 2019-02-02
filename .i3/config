@@ -197,6 +197,7 @@ bindsym $mod+Shift+B border toggle
 bindsym Print exec screenshot
 # cannot apply modifiere to Print key :(
 #bindsym $mod+Print exec screenshot window
+bindsym $mod+p exec browse_photos
 
 assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
@@ -226,6 +227,10 @@ for_window [class="Xsane"] floating enable
 # stacked or tabbed containers the title bar(s) will still be shown if there is
 # more than one window in the container.
 new_window 1pixel
+hide_edge_borders smart
+popup_during_fullscreen leave_fullscreen
+force_display_urgency_hint 500 ms
+focus_on_window_activation none
 
 # old eyes cannot see the subtle split indicator,so make it pink
 # class                 border  backgr. text    indicator
@@ -261,6 +266,8 @@ exec --no-startup-id /home/niklas/bin/wallpaper
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
 exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
 exec --no-startup-id blueman-applet
+exec --no-startup-id seafile-applet
+exec --no-startup-id xfce4-clipman
 
 # Start autocutsel to sync clipboards
 # 2014-01-03 annoying, cannot enter URLs on RTM, autoselecting fields overwrite selection
