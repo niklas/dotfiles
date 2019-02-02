@@ -1,7 +1,14 @@
 h     ~/
 d     ~/Documents
 b     ~/Books
-Pa    ~/Projects/
+PA    ~/Projects/
 Ps    ~/Projects/SimplyAddWater
-pp    ~/Pictures
+pA    ~/Pictures
+pf    ~/Pictures/funny
+pm    ~/Pictures/me
+po    ~/Pictures/Own
+pp    ~/Pictures/Projecte
+pr    ~/Pictures/react
+ps    ~/Pictures/sexy
 pw    ~/Pictures/Wallpapers/single
+cam   "~/Seafile/Mobile/My Photos/Camera/"

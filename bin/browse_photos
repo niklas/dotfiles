@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
-destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk '{print $2}' | dmenu -l 20 -i -p "Browse Photos where?" | sed "s|~|$HOME|g")"
+destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk -v FPAT='([^ ]+)|("[^"]+")' '{print $2}' | sed 's|^"||;s|"$||' | dmenu -l 20 -i -p "Browse Photos where?" | sed "s|~|$HOME|g")"
 [ -z "$destdir" ] && exit
-sxiv -ft "${destdir}"
+subdirs="$(find "${destdir}"/ -maxdepth 3 -type d | sed "s|${destdir}/||;/^\s*$/d")"
+
+if [[ -z "${subdirs}" ]]
+then
+    sxiv -aft "${destdir}"
+else
+    allprompt="ALL (recursive)"
+    subsel=$((echo ${allprompt}; echo "${subdirs}") | dmenu -l 20 -i -p "Which subdirectory of $(dirname ${destdir})?")
+    case $subsel in
+        "")
+            exit
+            ;;
+        "${allprompt}")
+            sxiv -aftr "${destdir}"
+            ;;
+        *)
+           sxiv -aft "${destdir}/${subsel}"
+           ;;
+    esac
+fi
