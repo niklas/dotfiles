@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+
+BESTMODE="1920x1080_58.00"
+echo "setting mode $BESTMODE"
+
+xrandr --output eDP1 --primary --mode $BESTMODE \
+  --output DP2-2  --mode $BESTMODE --left-of eDP1 \
+  --output DP2-3 --auto --right-of eDP1
+#xrandr --output HDMI2 --auto --left-of eDP1

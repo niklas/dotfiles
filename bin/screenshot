@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+FILE=$(mktemp ~/tmp/screenshotXXXXXXX.png)
+
+case "$1" in
+    window)
+        import -silent "$FILE";;
+    *)
+        import -silent -window root "$FILE";;
+esac
+
+gimp "$FILE"

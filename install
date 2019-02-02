@@ -11,7 +11,16 @@ linkfromhome() {
   ln -sfv $repo/$1 ~/
 }
 
+if [[ -d ~/bin/git-prompt ]]
+then
+    printf "git-prompt already installed\n"
+else
+    git clone git@github.com:niklas/git-prompt.git ~/bin/git-prompt
+fi
+
 ln -sfv $repo_abs/bin ~/bin/dotfiles
+ln -sfv $repo_abs/bin/i3blocks ~/bin/i3blocks
+
 linkfromhome .bmfiles
 linkfromhome .bmdirs
 linkfromhome .ackrc
