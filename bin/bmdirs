@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# robustly prints the second column of our bmdirs file, allowing quoting.
+
+sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk -v FPAT='([^ ]+)|("[^"]+")' '{print $2}' | sed 's|^"||;s|"$||'

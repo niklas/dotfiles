@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk -v FPAT='([^ ]+)|("[^"]+")' '{print $2}' | sed 's|^"||;s|"$||' | dmenu -l 20 -i -p "Browse Photos where?" | sed "s|~|$HOME|g")"
+destdir="$(bmdirs | dmenu -l 20 -i -p "Browse Photos where?" | sed "s|~|$HOME|g")"
 [ -z "$destdir" ] && exit
 subdirs="$(find "${destdir}"/ -maxdepth 3 -type d | sed "s|${destdir}/||;/^\s*$/d")"
 
