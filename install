@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu
+
+repo_abs=$(readlink -f $0 | xargs dirname) 
+repo=$(realpath --relative-to="${HOME}" ${repo_abs})
+
+printf "Installing dotfiles from ${repo} (${repo_abs})...\n"
+
+linkfromhome() {
+  ln -sfv $repo/$1 ~/
+}
+
+linkfromhome .bmfiles
+linkfromhome .bmdirs
+linkfromhome .ackrc
+linkfromhome .i3
+linkfromhome .spacemacs.d
