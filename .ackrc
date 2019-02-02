@@ -22,3 +22,5 @@
 --ignore-dir=public/assets/
 --ignore-dir=dist/
 --ignore-dir=priv/static/
+--ignore-dir=.webpack-dev/
+--ignore-file=ext:elmo
