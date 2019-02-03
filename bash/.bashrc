@@ -195,7 +195,7 @@ alias gg="git graph"
 # baguette working dir
 alias bwd='pwd | sed -e s*/*🥖*g'
 
-alias go="gnome-open"
+alias go="xdg-open"
 alias watch_gitdiff="watch -c 'git diff --color=always; echo \"Unstaged ^^^^^ |||| vvvvv staged\"; git diff --cached --color=always'"
 
 alias lc="cl"
@@ -252,9 +252,10 @@ if [ -x ~/.rvm/scripts/rvm ]; then
   PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 fi
 
-
 # allow locking screen from /etc/acpi/actions
 xhost +local:root > /dev/null
+
+[ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
 
 
 [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config

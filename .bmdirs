@@ -1,7 +1,8 @@
 h     ~/
 d     ~/Documents
 b     ~/Books
-PA    ~/Projects/
+wb    ~/work/V-Zug/bivium
+wa    ~/work/community/apis-pupae
 Ps    ~/Projects/SimplyAddWater
 pA    ~/Pictures
 pf    ~/Pictures/funny
@@ -10,5 +11,5 @@ po    ~/Pictures/Own
 pp    ~/Pictures/Projecte
 pr    ~/Pictures/react
 ps    ~/Pictures/sexy
-pw    ~/Pictures/Wallpapers/single
-cam   "~/Seafile/Mobile/My Photos/Camera/"
+pw    ~/Pictures/Wallpapers
+cam   ~/Pictures/Camera/
