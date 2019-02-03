@@ -4,9 +4,11 @@ destdir="$(bmdirs | dmenu -l 20 -i -p "Browse Photos where?" | sed "s|~|$HOME|g"
 [ -z "$destdir" ] && exit
 subdirs="$(find "${destdir}"/ -maxdepth 3 -type d | sed "s|${destdir}/||;/^\s*$/d")"
 
+gallery="sxiv -aft -sf"
+
 if [[ -z "${subdirs}" ]]
 then
-    sxiv -aft "${destdir}"
+    ${gallery} "${destdir}"
 else
     allprompt="ALL (recursive)"
     allhere="ALL (here)"
@@ -16,13 +18,13 @@ else
             exit
             ;;
         "${allprompt}")
-            sxiv -aftr "${destdir}"
+            ${gallery} -r "${destdir}"
             ;;
         "${allhere}")
-            sxiv -aft "${destdir}"
+            ${gallery} "${destdir}"
             ;;
         *)
-           sxiv -aft "${destdir}/${subsel}"
+           ${gallery} "${destdir}/${subsel}"
            ;;
     esac
 fi
