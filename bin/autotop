@@ -2,8 +2,19 @@
 
 set -eu
 
-BESTMODE="1920x1080_58.00"
+BESTMODE="highresasfuck"
 echo "setting mode $BESTMODE"
+
+if ! xrandr | grep -q $BESTMODE
+then
+    xrandr --newmode $BESTMODE  166.00  1920 2040 2240 2560  1080 1083 1088 1119 -hsync +vsync
+    xrandr --addmode eDP1 $BESTMODE
+    xrandr --addmode DP2-2 $BESTMODE
+fi
+
+
+# avoid squinting
+xrandr --dpi 144
 
 xrandr --output eDP1 --primary --mode $BESTMODE \
   --output DP2-2  --mode $BESTMODE --left-of eDP1 \
