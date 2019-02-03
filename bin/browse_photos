@@ -9,13 +9,17 @@ then
     sxiv -aft "${destdir}"
 else
     allprompt="ALL (recursive)"
-    subsel=$((echo ${allprompt}; echo "${subdirs}") | dmenu -l 20 -i -p "Which subdirectory of $(dirname ${destdir})?")
+    allhere="ALL (here)"
+    subsel=$((echo ${allprompt}; echo ${allhere}; echo "${subdirs}") | dmenu -l 20 -i -p "Which subdirectory of $(dirname ${destdir})?")
     case $subsel in
         "")
             exit
             ;;
         "${allprompt}")
             sxiv -aftr "${destdir}"
+            ;;
+        "${allhere}")
+            sxiv -aft "${destdir}"
             ;;
         *)
            sxiv -aft "${destdir}/${subsel}"
