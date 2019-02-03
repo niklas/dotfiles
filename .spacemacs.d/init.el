@@ -394,6 +394,11 @@ you should place your code here."
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(elm-indent-look-past-empty-line nil)
  '(evil-want-Y-yank-to-eol nil)
+ '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
+ '(helm-ag-command-option "")
+ '(helm-ag-ignore-buffer-patterns (quote ("\\.txt\\'" "\\.mkd\\'")))
+ '(helm-ag-insert-at-point (quote symbol))
+ '(helm-follow-mode-persistent t)
  '(org-agenda-files
    (quote
     ("~/org/Projekte.org" "~/org/Private.org.gpg" "~/org/Me.org" "~/org/GCX.org" "~/org/Consume.org" "~/org/LANpartei.org" "~/TODO.org")))
