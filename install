@@ -19,7 +19,7 @@ else
 fi
 
 ln -sfv $repo_abs/bin ~/bin/dotfiles
-ln -sfv $repo_abs/bin/i3blocks ~/bin/i3blocks
+ln -sfv $repo_abs/bin/i3blocks ~/bin/
 
 linkfromhome .bmfiles
 linkfromhome .bmdirs
