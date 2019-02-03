@@ -14,6 +14,19 @@ set $left h
 set $right l
 set $down j
 set $up k
+set $term --no-startup-id $TERMINAL
+set $hibernate sudo -A systemctl suspend
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6:edit"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9:mail"
+set $ws10 "10"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -30,10 +43,12 @@ font pango:Inconsolata 7
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec t
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$reboot"
 
 # start dmenu (a program launcher)
 bindsym $mod+i exec dmenu_run
@@ -41,6 +56,16 @@ bindsym $mod+i exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Show selection:
+bindsym $mod+Insert		exec --no-startup-id showclip
+bindsym $mod+Pause		exec --no-startup-id xcqr
+
+# Handy programs
+bindsym $mod+y exec $term -e $FILE
+bindsym $mod+F4 exec $term -e htop
+bindsym $mod+F6 exec em ~/org/Me.org; workspace --no-auto-back-and-forth $ws6
+bindsym $mod+F9 exec thunderbird; workspace --no-auto-back-and-forth $ws9
 
 # change focus
 bindsym $mod+$left focus left
@@ -93,28 +118,28 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Control+1 move container to workspace number 1
-bindsym $mod+Control+2 move container to workspace number 2
-bindsym $mod+Control+3 move container to workspace number 3
-bindsym $mod+Control+4 move container to workspace number 4
-bindsym $mod+Control+5 move container to workspace number 5
-bindsym $mod+Control+6 move container to workspace number 6
-bindsym $mod+Control+7 move container to workspace number 7
-bindsym $mod+Control+8 move container to workspace number 8
-bindsym $mod+Control+9 move container to workspace number 9
-bindsym $mod+Control+0 move container to workspace number 10
+bindsym $mod+Control+1 move container to workspace $ws1
+bindsym $mod+Control+2 move container to workspace $ws2
+bindsym $mod+Control+3 move container to workspace $ws3
+bindsym $mod+Control+4 move container to workspace $ws4
+bindsym $mod+Control+5 move container to workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6
+bindsym $mod+Control+7 move container to workspace $ws7
+bindsym $mod+Control+8 move container to workspace $ws8
+bindsym $mod+Control+9 move container to workspace $ws9
+bindsym $mod+Control+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -170,17 +195,17 @@ bar {
 workspace_auto_back_and_forth yes
 
 # monitor rules
-workspace 2  output VGA1
-workspace 4  output VGA1
-workspace 6:develop  output LVDS1
-workspace 8  output VGA1
-workspace 10 output LVDS!
+workspace $ws2  output VGA1
+workspace $ws4  output VGA1
+workspace $ws6  output LVDS1
+workspace $ws8  output VGA1
+workspace $ws10 output LVDS!
 #
-workspace 1 output LVDS1
-workspace 3 output LVDS1
-workspace 5 output LVDS1
-workspace 7:www output LVDS1
-workspace 9:test output VGA1
+workspace $ws1 output LVDS1
+workspace $ws3 output LVDS1
+workspace $ws5 output LVDS1
+workspace $ws7 output LVDS1
+workspace $ws9 output VGA1
 
 # operate workspace switching with thinkpad's extra arrow keys
 bindsym $mod+F18 workspace next
@@ -201,7 +226,6 @@ bindsym $mod+p exec browse_photos
 
 assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
-assign [class="Claws-mail"] "9:mail"
 assign [instance="chromium-browser"] "10:capybara"
 assign [instance="Chromium-browser"] "10:capybara"
 no_focus [instance="chromium-browser"]
@@ -223,6 +247,15 @@ for_window [instance="chromium-browser"] floating enable
 for_window [class="processing-core-Applet"] floating enable
 for_window [class="Xsane"] floating enable
 
+for_window [class="Pinentry"] sticky enable
+for_window [title="GIMP Startup"] move workspace $ws5
+for_window [class="Gimp"] move workspace $ws5
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+assign [class="Thunderbird"] $ws9
+assign [class="Claws-mail"] $ws9
+assign [class="Signal"] $ws9
+assign [class="Emacs"] $ws6
 # set borders on new windows to 1pixel if they are in a split container. In
 # stacked or tabbed containers the title bar(s) will still be shown if there is
 # more than one window in the container.
@@ -242,8 +275,10 @@ client.urgent           #2f343a #FF8700 #ffffff #FF8700
 # Start some applets
 exec dunst
 exec nm-applet
-exec bluetooth-applet
-exec redshift-gtk -l 52:13
+exec --no-startup-id redshift-gtk -l 52:13
+exec --no-startup-id blueman-applet
+exec --no-startup-id seafile-applet
+exec --no-startup-id xfce4-clipman
 
 # Setttings
 exec --no-startup-id xrdb -merge /home/niklas/.Xdefaults
@@ -265,9 +300,6 @@ exec --no-startup-id wallpaper
 # turn of coasting when scrolling with touchpad. Stop immediately
 # else: 1) scroll fast 2) stop touching pad 3) press ctrl (in browser) => zoom
 exec --no-startup-id xinput set-float-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
-exec --no-startup-id blueman-applet
-exec --no-startup-id seafile-applet
-exec --no-startup-id xfce4-clipman
 
 exec --no-startup-id ls ~/.bm* | entr ~/bin/tools/shortcuts
 
