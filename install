@@ -25,4 +25,5 @@ linkfromhome .bmfiles
 linkfromhome .bmdirs
 linkfromhome .ackrc
 linkfromhome .i3
+linkfromhome .profile
 linkfromhome .spacemacs.d
