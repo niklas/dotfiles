@@ -353,6 +353,7 @@ you should place your code here."
    org-journal-date-format "%A, %Y-%m-%d"
    org-extend-today-until 4
    )
+  (global-set-key (kbd "C-x g") 'magit-status)
   ;; two spaces indent for js
   (setq-default js2-basic-offset 2
               js-indent-level 2)
