@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
-# robustly prints the second column of our bmdirs file, allowing quoting.
+# robustly prints the second column of our bmdirs file, allowing quoting. Leaves out entries not being a directory.
 
-sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk -v FPAT='([^ ]+)|("[^"]+")' '{print $2}' | sed 's|^"||;s|"$||'
+dirs=$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs \
+    | awk -v FPAT='([^ ]+)|("[^"]+")' '{print $2}' \
+    | sed 's|^"||;s|"$||')
+
+for dir in ${dirs}
+do
+    full=$(printf "${dir}" | sed "s|~|$HOME|g")
+    if [[ -d "${full}" ]]
+    then
+        echo "${dir}"
+    fi
+done
