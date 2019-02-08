@@ -2,7 +2,7 @@
 
 set -eu
 
-repo_abs=$(readlink -f $0 | xargs dirname) 
+repo_abs=$(readlink -f $0 | xargs dirname)
 repo=$(realpath --relative-to="${HOME}" ${repo_abs})
 
 printf "Installing dotfiles from ${repo} (${repo_abs})...\n"
@@ -20,7 +20,7 @@ fi
 
 ln -sfv $repo_abs/bin ~/bin/dotfiles
 ln -sfv $repo_abs/bin/i3blocks ~/bin/
-
+ln -sfv $repo_abs/.config/ranger ~/.config/ranger
 linkfromhome .bmfiles
 linkfromhome .bmdirs
 linkfromhome .ackrc
