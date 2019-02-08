@@ -49,6 +49,7 @@ Press any "verb" followed by any "argument" to perform a folder operation. "gd" 
 	+ Z -- zips a folder up into a .tar.gz archive.
 	+ CTRL-f -- Fuzzy find a file
 	+ CTRL-l -- Fuzzy locate a file
+    + ,du -- sort all subdirectories descending by their real size
 + Document manipulation:
 	+ p1s -- print this file on the default printer, one-sided (lpr)
 	+ p2s -- print this file on the default printer, double-sided (lpr)
