@@ -148,7 +148,7 @@ autotesting() {
     done
   fi
   echo "Starting spork cucumber in background"
-  bundle exec spork cucumber & 
+  bundle exec spork cucumber &
   if type -P netcat >&/dev/null ; then
     until netcat localhost 8990 -w 1 -q 0 </dev/null
     do
@@ -259,3 +259,6 @@ xhost +local:root > /dev/null
 
 
 [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
+
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
