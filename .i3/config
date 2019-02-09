@@ -295,6 +295,7 @@ exec --no-startup-id synclient VertScrollDelta=155
 exec --no-startup-id synclient TapButton2=0
 # no composition because chrome makes sprite party
 #exec compton -b --backend glx --paint-on-overlay
+exec --no-startup-id xcompmgr
 exec xmodmap /home/niklas/.Xmodmap
 exec --no-startup-id wallpaper
 
