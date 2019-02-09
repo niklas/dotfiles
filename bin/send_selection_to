@@ -1,0 +1,26 @@
+#!/bin/bash
+
+sel=$(xsel)
+selly="$(echo "${sel}" | head -n 1 -c 40)..."
+target=$(printf "kodi\nkodi_enqueue\nmemoize\ndisplay\n" | dmenu -l 20 -i -p "Send selection (${selly}) to:")
+
+case "${target}" in
+    kodi)
+        xbmc_youtube "${sel}"
+        notify-send -u critical -t 7000 "Playing on Kodi..." "${sel}"
+        ;;
+    kodi_enqueue)
+        xbmc_youtube "${sel}"
+        notify-send -u critical -t 7000 "Enqeued on Kodi..." "${sel}"
+        ;;
+    memoize)
+        echo "** ${sel}" >> ~/org/Incoming.org
+        notify-send -u critical -t 7000 "Memoized in Incoming.org" "${sel}"
+        ;;
+    display)
+        notify-send -u critical -t 7000 "Clipboard Content" "${sel}"
+        ;;
+    *)
+        exit -1
+        ;;
+esac

@@ -60,6 +60,7 @@ bindsym $mod+i exec dmenu_run
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
 bindsym $mod+Pause		exec --no-startup-id xcqr
+bindsym $mod+plus  exec --no-startup-id send_selection_to
 
 # Handy programs
 bindsym $mod+y exec $term -e $FILE
