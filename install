@@ -20,8 +20,8 @@ fi
 
 ln -sfv $repo_abs/bin ~/bin/dotfiles
 ln -sfv $repo_abs/bin/i3blocks ~/bin/
-ln -sfv $repo_abs/.config/ranger ~/.config/ranger
-ln -sfv $repo_abs/.config/dunst ~/.config/dunst
+ln -sfv $repo_abs/.config/ranger ~/.config/
+ln -sfv $repo_abs/.config/dunst ~/.config/
 linkfromhome .bmfiles
 linkfromhome .bmdirs
 linkfromhome .ackrc
