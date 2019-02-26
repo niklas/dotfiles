@@ -1,5 +1,6 @@
 h     ~/
 d     ~/Documents
+D     ~/Downloads
 b     ~/Books
 wb    ~/work/V-Zug/bivium
 wa    ~/work/community/apis-pupae
@@ -14,3 +15,5 @@ px    ~/Pictures/sexy
 pw    ~/Pictures/Wallpapers
 cam   ~/Pictures/Camera
 ae    ~/Documents/journal/Exes
+ns    ~/net/schnurr/Serien
+Lp    ~/puppet/lanpartei
