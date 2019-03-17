@@ -59,7 +59,7 @@ bindsym $mod+i exec dmenu_run
 
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
-bindsym $mod+Pause		exec --no-startup-id xcqr
+bindsym $mod+Pause		exec --no-startup-id ddspawn dropdowncalc -fn xft:Inconsolata:pixelsize=24:antialias=true
 bindsym $mod+plus  exec --no-startup-id send_selection_to
 
 # Handy programs
@@ -235,6 +235,15 @@ no_focus [instance="Chromium-browser"]
 # gnu radio
 assign     [class="Top_block.py"] "3:radio"
 for_window [class="Top_block.py"] fullscreen
+
+# dropdowns
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdowncalc"] resize set 800 300
+for_window [instance="dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] move position center
 
 # Games etc
 for_window [class="org-spoutcraft-launcher-Main"] floating enable
