@@ -10,7 +10,7 @@ case "${target}" in
         notify-send -u critical -t 7000 "Playing on Kodi..." "${sel}"
         ;;
     kodi_enqueue)
-        xbmc_youtube "${sel}"
+        xbmc_youtube_enqueue "${sel}"
         notify-send -u critical -t 7000 "Enqeued on Kodi..." "${sel}"
         ;;
     memoize)
