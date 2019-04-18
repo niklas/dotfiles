@@ -370,6 +370,9 @@ you should place your code here."
   (add-hook 'org-journal-after-entry-create-hook
             (lambda ()
                   (setq-local epa-file-encrypt-to "niklas@lanpartei.de")))
+  ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
+  (add-hook 'elixir-mode-hook
+            (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
   (with-eval-after-load 'org-journal
     (bind-key (quote [f9]) 'org-journal-open-previous-entry org-journal-mode-map))
   (with-eval-after-load 'org-journal
