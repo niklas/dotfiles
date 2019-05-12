@@ -1,0 +1,5 @@
+# for helm-ag
+*.hot-update.json
+*.hot-update.js
+web/static/vendor
+*.js.map
