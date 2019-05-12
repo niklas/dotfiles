@@ -33,6 +33,7 @@ ln -sfv $repo_abs/.config/dunst ~/.config/
 linkfromhome .bmfiles
 linkfromhome .bmdirs
 linkfromhome .ackrc
+linkfromhome .Xresources
 linkfromhome .i3
 linkfromhome .agignore
 linkfromhome .profile
