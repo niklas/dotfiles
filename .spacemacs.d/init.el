@@ -352,6 +352,12 @@ you should place your code here."
      )
    )
   (global-set-key (kbd "C-x g") 'magit-status)
+  (eval-after-load "grep"
+  '(progn
+    (add-to-list 'grep-find-ignored-files "*.js.map")
+    (add-to-list 'grep-find-ignored-files "*.svg")
+    (add-to-list 'grep-find-ignored-directories "node_modules")
+    (add-to-list 'grep-find-ignored-directories "assets")))
   ;; two spaces indent for js
   (setq-default js2-basic-offset 2
               js-indent-level 2)
@@ -373,6 +379,12 @@ you should place your code here."
   ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+  (add-hook 'elixir-format-hook (lambda ()
+                                  (if (projectile-project-p)
+                                      (setq elixir-format-arguments
+                                            (list "--dot-formatter"
+                                                  (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
+                                    (setq elixir-format-arguments nil))))
   (with-eval-after-load 'org-journal
     (bind-key (quote [f9]) 'org-journal-open-previous-entry org-journal-mode-map))
   (with-eval-after-load 'org-journal
@@ -399,16 +411,18 @@ you should place your code here."
  '(helm-ag-command-option "")
  '(helm-ag-ignore-buffer-patterns (quote ("\\.txt\\'" "\\.mkd\\'")))
  '(helm-ag-insert-at-point (quote symbol))
+ '(helm-ag-use-grep-ignore-list t)
  '(helm-follow-mode-persistent t)
  '(org-agenda-files
    (quote
     ("~/org/Incoming.org" "~/org/Projekte.org" "~/org/Private.org.gpg" "~/org/Me.org" "~/org/GCX.org" "~/org/Consume.org" "~/org/LANpartei.org" "~/TODO.org")))
  '(org-extend-today-until 4)
  '(org-journal-date-format "%A, %Y-%m-%d")
- '(org-journal-file-format "%Y%m%d.gpg")
+ '(org-journal-encrypt-journal t)
+ '(org-journal-file-format "%Y%m%d")
  '(package-selected-packages
    (quote
-    (sql-indent xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help org-journal csv-mode powershell terraform-mode hcl-mode graphviz-dot-mode yapfify yaml-mode ws-butler winum which-key web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode prettier-js popwin pip-requirements persp-mode paradox orgit org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-elixir neotree move-text minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-mix flycheck-elm flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elm-mode elisp-slime-nav dumb-jump diminish diff-hl define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (edit-indirect ssass-mode vue-html-mode powerline pcre2el alert log4e gntp org-plus-contrib markdown-mode magit-popup skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode hydra lv parent-mode projectile request haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg reformatter web-completion-data dash-functional tern inf-ruby bind-map bind-key yasnippet packed anaconda-mode pythonic company elixir-mode pkg-info epl helm avy helm-core async auto-complete popup f s dash sql-indent xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help org-journal csv-mode powershell terraform-mode hcl-mode graphviz-dot-mode yapfify yaml-mode ws-butler winum which-key web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode prettier-js popwin pip-requirements persp-mode paradox orgit org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-elixir neotree move-text minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-mix flycheck-elm flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elm-mode elisp-slime-nav dumb-jump diminish diff-hl define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
