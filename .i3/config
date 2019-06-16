@@ -26,7 +26,7 @@ set $ws6 "6:edit"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9:mail"
-set $ws10 "10"
+set $ws10 "10:auto"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -227,10 +227,12 @@ bindsym $mod+p exec browse_photos
 
 assign [class="google-chrome" window_role="browser"] "7:www"
 assign [class="Pidgin"] "8:chat"
-assign [instance="chromium-browser"] "10:capybara"
-assign [instance="Chromium-browser"] "10:capybara"
-no_focus [instance="chromium-browser"]
-no_focus [instance="Chromium-browser"]
+assign [class="chromium-browser"] "7:www"
+assign [class="Chromium-browser"] "7:www"
+# TODO keep the test browser from popping up in our face.
+#assign [class="webdriver"] $ws10
+#no_focus [instance="chromium-browser"]
+#no_focus [instance="Chromium-browser"]
 
 # gnu radio
 assign     [class="Top_block.py"] "3:radio"
