@@ -38,4 +38,5 @@ linkfromhome .Xresources
 linkfromhome .i3
 linkfromhome .agignore
 linkfromhome .profile
+linkfromhome bash/.bashrc
 linkfromhome .spacemacs.d
