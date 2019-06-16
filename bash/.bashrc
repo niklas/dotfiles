@@ -262,3 +262,5 @@ xhost +local:root > /dev/null
 
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
