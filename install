@@ -5,18 +5,11 @@ set -eu
 repo_abs=$(readlink -f $0 | xargs dirname)
 repo=$(realpath --relative-to="${HOME}" ${repo_abs})
 
-printf "Installing dotfiles from ${repo} (${repo_abs})...\n"
-
 linkfromhome() {
   ln -sfv $repo/$1 ~/
 }
 
-if [[ -d ~/bin/git-prompt ]]
-then
-    printf "git-prompt already installed\n"
-else
-    git clone git@github.com:niklas/git-prompt.git ~/bin/git-prompt
-fi
+printf "Installing packages...(may ask for password)\n"
 
 sudo aptitude install \
      ruby-color \
@@ -24,11 +17,13 @@ sudo aptitude install \
      i3-wm \
      i3blocks \
      emacs \
+     inotify-tools \
      entr \
      feh
 
-ln -sfv $repo_abs/bin ~/bin/dotfiles
-ln -sfv $repo_abs/bin/i3blocks ~/bin/
+printf "Installing dotfiles from ${repo} (${repo_abs})...\n"
+
+ln -sfv $repo_abs/bin ~/bin
 ln -sfv $repo_abs/.config/ranger ~/.config/
 ln -sfv $repo_abs/.config/dunst ~/.config/
 linkfromhome .bmfiles
@@ -40,3 +35,10 @@ linkfromhome .agignore
 linkfromhome .profile
 linkfromhome bash/.bashrc
 linkfromhome .spacemacs.d
+
+if [[ -d ~/bin/git-prompt ]]
+then
+    printf "git-prompt already installed\n"
+else
+    git clone git@github.com:niklas/git-prompt.git ~/bin/git-prompt
+fi

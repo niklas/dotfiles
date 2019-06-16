@@ -63,16 +63,15 @@ if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
     alias crep='grep --color=always'
-#    export GREP_OPTIONS='--color=auto'
     alias grep='grep --color=auto --exclude-from=/home/niklas/.grep-excludes --exclude-dir=.svn'
-    #export GREP_COLOR='00;38;5;226'
     export TERM=rxvt
 fi
 
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='exa'
+alias ttt="t&t&t&t&t"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -106,6 +105,10 @@ alias mm='milkmaid'
 #fi
 
 # set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+    [[ ":$PATH:" == *":$HOME/bin:"* ]] || PATH=~/bin:"${PATH}"
+fi
+
 #eval `dbus-launch --auto-syntax`
 
 if [ -d /usr/local/arduino-0015 ] ; then
@@ -119,15 +122,15 @@ fi
 # rails
 alias ss='./script/server'
 alias be="bundle exec"
-alias sss='while(true); do (echo "starting"; be rails server; echo "restarting in 3s"; sleep 3); done'
-alias zsss='while(true); do (echo "starting"; zeus server; echo "restarting in 3s"; sleep 3); done'
+alias sss='foreva be rails server'
+alias zsss='foreva zeus server'
+alias mxp='foreva iex -S mix phx.server'
 alias sc='./script/console'
 alias migrate='bundle exec rake db:migrate RAILS_ENV=test && bundle exec rake db:migrate'
 alias irb='irb --readline -r irb/completion'
 alias rii='ri -Tf ansi'
 alias cu="truncate --size 0 log/*.log; clear; bundle exec cucumber --drb -r features/"
 alias killall_spork="ps ax | grep spork | grep -v grep | tail -n 2 | cut -b 1-6 | xargs kill"
-alias add="git add -p"
 
 alias todo="mm task add"
 if [[ -x /usr/bin/ack ]]
@@ -137,6 +140,16 @@ else
   alias ack="ack-grep -i"
 fi
 alias _watch_git_status="watch --color 'git -c color.status=always status'"
+
+foreva() {
+    restart_time=3
+
+    while true; do
+        $@
+        echo "Will restart in ${restart_time}s..."
+        sleep $restart_time
+    done
+}
 
 autotesting() {
   echo "Starting spork in background"
@@ -187,6 +200,7 @@ alias gitdiff_both="git diff HEAD"
 alias gst="git status"
 alias gs="git status"
 alias ci="git commit -m"
+alias add="git add -p"
 alias feature="git flow feature"
 alias hotfix="git flow hotfix"
 alias release="git flow release"
