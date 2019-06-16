@@ -24,6 +24,7 @@ sudo aptitude install \
      i3-wm \
      i3blocks \
      emacs \
+     entr \
      feh
 
 ln -sfv $repo_abs/bin ~/bin/dotfiles
