@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -eu
+
+echo 'Good Night!'
+systemctl suspend &
+lock_screen
