@@ -23,7 +23,7 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6:edit"
-set $ws7 "7"
+set $ws7 "7:www"
 set $ws8 "8"
 set $ws9 "9:mail"
 set $ws10 "10:auto"
@@ -225,14 +225,15 @@ bindsym Print exec screenshot
 #bindsym $mod+Print exec screenshot window
 bindsym $mod+p exec browse_photos
 
-assign [class="google-chrome" window_role="browser"] "7:www"
+assign [class="google-chrome" window_role="browser"] $ws7
 assign [class="Pidgin"] "8:chat"
-assign [class="chromium-browser"] "7:www"
-assign [class="Chromium-browser"] "7:www"
+assign [class="chromium-browser"] $ws7
+assign [class="Chromium-browser"] $ws7
 # TODO keep the test browser from popping up in our face.
 #assign [class="webdriver"] $ws10
 #no_focus [instance="chromium-browser"]
 #no_focus [instance="Chromium-browser"]
+#for_window [instance="chromium-browser"] floating enable
 
 # gnu radio
 assign     [class="Top_block.py"] "3:radio"
@@ -250,11 +251,10 @@ for_window [instance="dropdown_*"] move position center
 # Games etc
 for_window [class="org-spoutcraft-launcher-Main"] floating enable
 
-# browser pop-ups
+# pop-ups
 for_window [window_role="pop-up"] floating enable
 for_window [class="Gcr-prompter"] floating enable
 for_window [class="Steam"] floating enable
-for_window [instance="chromium-browser"] floating enable
 # processing
 for_window [class="processing-core-Applet"] floating enable
 for_window [class="Xsane"] floating enable
