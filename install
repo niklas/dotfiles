@@ -18,6 +18,7 @@ sudo aptitude install \
      i3blocks \
      emacs \
      inotify-tools \
+     libnotify-bin \
      entr \
      feh
 
