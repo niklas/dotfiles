@@ -57,7 +57,7 @@ values."
      ;; spell-checking
      syntax-checking
      version-control
-     mix-format
+     ;; mix-format
      terraform
      journal
      crosshairs
