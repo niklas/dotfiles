@@ -20,6 +20,8 @@ sudo aptitude install \
      inotify-tools \
      libnotify-bin \
      entr \
+     translate \
+     redshift-gtk \
      feh
 
 printf "Installing dotfiles from ${repo} (${repo_abs})...\n"
