@@ -38,6 +38,7 @@ linkfromhome .agignore
 linkfromhome .profile
 linkfromhome bash/.bashrc
 linkfromhome .spacemacs.d
+linkfromhome .xinitrc
 
 if [[ -d ~/bin/git-prompt ]]
 then
