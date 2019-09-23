@@ -397,6 +397,8 @@ you should place your code here."
     (bind-key (quote [f9]) 'org-journal-open-previous-entry org-journal-mode-map))
   (with-eval-after-load 'org-journal
     (bind-key (quote [f12]) 'org-journal-open-next-entry org-journal-mode-map))
+  (spacemacs/declare-prefix-for-mode 'elm-mode "o" "custom")
+  (spacemacs/set-leader-keys-for-major-mode 'elm-mode "ot" 'elm-mode-goto-tag-at-point)
   ;; remap C-a to `smarter-move-beginning-of-line'
   )
 
@@ -414,6 +416,7 @@ you should place your code here."
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(elm-indent-look-past-empty-line nil)
+ '(elm-tags-exclude-elm-stuff nil)
  '(evil-want-Y-yank-to-eol nil)
  '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
  '(helm-ag-command-option "")
