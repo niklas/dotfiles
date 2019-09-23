@@ -260,14 +260,14 @@ for_window [class="processing-core-Applet"] floating enable
 for_window [class="Xsane"] floating enable
 
 for_window [class="Pinentry"] sticky enable
-for_window [title="GIMP Startup"] move workspace $ws5
-for_window [class="Gimp"] move workspace $ws5
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 assign [class="Thunderbird"] $ws9
 assign [class="Claws-mail"] $ws9
 assign [class="Signal"] $ws9
 assign [class="Emacs"] $ws6
+assign [title="GIMP Startup"] $ws5
+assign [class="Gimp"] $ws5
 # set borders on new windows to 1pixel if they are in a split container. In
 # stacked or tabbed containers the title bar(s) will still be shown if there is
 # more than one window in the container.
