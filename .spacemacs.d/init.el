@@ -46,7 +46,8 @@ values."
      javascript
      elm
      helm
-     auto-completion
+     (auto-completion :variables
+                    auto-completion-enable-help-tooltip t)
      emacs-lisp
      git
      markdown
@@ -336,6 +337,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (global-company-mode)
   (setq
    elm-format-on-save t
    elm-tags-on-save t
@@ -380,6 +382,13 @@ you should place your code here."
   ;;    (require 'lsp-flycheck))
   ;;(require 'company-lsp)
   ;;  (push 'company-lsp company-backends)
+  ;; (add-to-list 'company-backends 'company-elm)
+  ;; FIXME void - but I want completion in elm
+  ;;(with-eval-after-load 'company
+  ;;  (spacemacs|add-company-backends
+  ;;   :backends company-elm
+  ;;   :modes elm-mode)
+  ;;)
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'org-journal-after-entry-create-hook
             (lambda ()
