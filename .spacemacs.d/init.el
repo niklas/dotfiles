@@ -74,7 +74,6 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
      prettier-js
-     vue-mode
      gnu-elpa-keyring-update
      )
    ;; A list of packages that cannot be updated.
