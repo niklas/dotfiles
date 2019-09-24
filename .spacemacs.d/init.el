@@ -75,6 +75,7 @@ values."
    dotspacemacs-additional-packages '(
      prettier-js
      vue-mode
+     gnu-elpa-keyring-update
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
