@@ -435,7 +435,7 @@ you should place your code here."
  '(helm-follow-mode-persistent t)
  '(org-agenda-files
    (quote
-    ("~/org/Incoming.org" "~/org/Projekte.org" "~/org/Private.org.gpg" "~/org/Me.org" "~/org/Consume.org" "~/org/LANpartei.org" "~/TODO.org")))
+    ("~/org/Projekte.org" "~/org/Private.org.gpg" "~/org/Me.org" "~/org/Consume.org" "~/org/LANpartei.org")))
  '(org-extend-today-until 4)
  '(org-journal-date-format "%A, %Y-%m-%d")
  '(org-journal-encrypt-journal t)
