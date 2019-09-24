@@ -422,7 +422,7 @@ you should place your code here."
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(elm-indent-look-past-empty-line nil)
- '(elm-tags-exclude-elm-stuff nil)
+ '(elm-tags-exclude-elm-stuff t)
  '(evil-want-Y-yank-to-eol nil)
  '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
  '(helm-ag-command-option "")
