@@ -405,7 +405,23 @@ you should place your code here."
   (spacemacs/declare-prefix-for-mode 'elm-mode "o" "custom")
   (spacemacs/set-leader-keys-for-major-mode 'elm-mode "ot" 'elm-mode-goto-tag-at-point)
   ;; remap C-a to `smarter-move-beginning-of-line'
-  (toggle-debug-on-error t)
+  ;; (toggle-debug-on-error t)
+  (defun bury-compile-buffer-if-successful (buffer string)
+    "Bury a compilation buffer if succeeded without warnings "
+    (when (and
+           (buffer-live-p buffer)
+           (string-match "compilation" (buffer-name buffer))
+           (string-match "finished" string)
+           (not
+            (with-current-buffer buffer
+              (goto-char (point-min))
+              (search-forward "warning" nil t))))
+      (run-with-timer 3 nil
+                      (lambda (buf)
+                        (bury-buffer buf)
+                        (delete-windows-on buf t))
+                      buffer)))
+  (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
   )
 
 
