@@ -262,6 +262,8 @@ for_window [class="Steam"] floating enable
 # processing
 for_window [class="processing-core-Applet"] floating enable
 for_window [class="Xsane"] floating enable
+for_window [class="Gimp"] floating disable
+for_window [title="GIMP Startup"] floating enable
 
 for_window [class="Pinentry"] sticky enable
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
