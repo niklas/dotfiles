@@ -36,3 +36,9 @@ fi
 
 export FILE="ranger"
 export TERMINAL="nterm"
+
+# Ubuntu make installation of Ubuntu Make binary symlink
+if [ -d /home/niklas/.local/share/umake/bin ] ; then
+    PATH=/home/niklas/.local/share/umake/bin:$PATH
+fi
+
